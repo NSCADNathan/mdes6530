@@ -1,0 +1,11 @@
+# Internal working docs — not for the public repo
+timeline.html
+CLAUDE.md
+memory/
+
+# Signed contract / personal
+*.pdf
+
+# OS / editor cruft
+.DS_Store
+*.swp

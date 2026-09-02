@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MDES 6530: Project Studio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #d0d8e0;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.75in;
+            background: #0a0a0f;
+        }
+
+        .ascii-header {
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            font-size: 20px;
+            line-height: 1.3;
+            color: #00e5ff;
+            margin-bottom: 2rem;
+            white-space: pre;
+            overflow-x: auto;
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+        }
+
+        h1 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            border-bottom: 3px solid #ff2ec4;
+            padding-bottom: 0.5rem;
+            text-shadow: 0 0 12px rgba(255, 46, 196, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        h2 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #00e5ff;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ff2ec4;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        h4 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #7fffa0;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #c0c8d4;
+        }
+
+        a {
+            color: #00e5ff;
+        }
+
+        strong {
+            color: #f0f4f8;
+        }
+
+        .course-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            background: #12121a;
+            border: 1px solid #2a2a3a;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin-bottom: 2rem;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            color: #ff2ec4;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .info-value {
+            color: #f0f4f8;
+            font-size: 1rem;
+            margin-top: 0.3rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .week-block {
+            background: #12121a;
+            border: 1px solid #2a2a3a;
+            border-left: 4px solid #00e5ff;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+        }
+
+        .week-header {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #00e5ff;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            color: #7fffa0;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+        }
+
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: #c0c8d4;
+        }
+
+        .callout {
+            background: #0d1f24;
+            border: 1px solid #00697a;
+            border-left: 4px solid #00e5ff;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .callout strong {
+            color: #00e5ff;
+        }
+
+        .callout-green {
+            background: #0d2418;
+            border: 1px solid #1f6b3e;
+            border-left: 4px solid #7fffa0;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .callout-green strong {
+            color: #7fffa0;
+        }
+
+        .materials-list {
+            background: #12121a;
+            border: 1px solid #2a2a3a;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .materials-list p, .materials-list em {
+            color: #a0a8b4;
+        }
+
+        .footer {
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid #2a2a3a;
+            text-align: center;
+            color: #5a6270;
+            font-size: 0.875rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .break-block {
+            border-left-color: #4a4a5a !important;
+            background: #0d0d12 !important;
+        }
+
+        .break-block .week-header {
+            color: #6a6a7a !important;
+        }
+
+        .page-break {
+            page-break-after: always;
+        }
+
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            body {
+                background: #0a0a0f !important;
+                padding: 0.5in;
+                max-width: 100%;
+                font-size: 10pt;
+            }
+
+            .course-info {
+                background: #12121a !important;
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+
+            .week-block {
+                background: #12121a !important;
+                break-inside: avoid;
+                page-break-inside: avoid;
+                margin-bottom: 1rem;
+            }
+
+            .callout, .callout-green {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            .materials-list {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            h2, h3, h4 {
+                break-after: avoid;
+                page-break-after: avoid;
+            }
+
+            .ascii-header {
+                font-size: 8pt !important;
+                overflow: hidden;
+            }
+
+            .page-break {
+                page-break-after: always;
+                break-after: always;
+            }
+
+            .footer {
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ascii-header">
+╔══════════════════════════════════╗
+║   M D E S   6 5 3 0               ║
+║   // PROJECT STUDIO               ║
+║   > system: interactivity.sh      ║
+╚══════════════════════════════════╝
+    </div>
+
+    <p style="font-size: 1.15rem; color: #7a8290; margin-bottom: 2rem; font-family: 'JetBrains Mono', monospace;">// applied design — interactivity, constraint, and design frameworks</p>
+
+    <div class="course-info">
+        <div class="info-item">
+            <span class="info-label">Course Code</span>
+            <span class="info-value">MDES 6530</span>
+        </div>
+        <div class="info-item">
+            <span class="info-label">Term</span>
+            <span class="info-value">Fall 2026</span>
+        </div>
+        <div class="info-item">
+            <span class="info-label">Course Dates</span>
+            <span class="info-value">Sept 17 – Dec 3, 2026 (+ Dec 10 assessment period)</span>
+        </div>
+        <div class="info-item">
+            <span class="info-label">Schedule</span>
+            <span class="info-value">Thursdays, full day (up to 7 hrs)</span>
+        </div>
+        <div class="info-item">
+            <span class="info-label">Location</span>
+            <span class="info-value">A207</span>
+        </div>
+    </div>
+
+    <h2>// Instructor</h2>
+    <p><strong>Nathan Ryan</strong><br>
+    EMAIL: <a href="mailto:nryan@nscad.ca">nryan@nscad.ca</a><br>
+    OFFICE HOURS: by appointment</p>
+
+    <h2>// Course Thesis</h2>
+    <div class="callout">
+        <p>This studio explores the frameworks an interaction hangs off — how a designed layer of interaction gets built between an object and a user. Approached through a design lens: the work isn't a critical statement the way a piece of pure art would be, it has to function as an interaction. Students get at that framework a few different ways across the semester — discovery and UX/interaction analysis of existing designed objects, a close case study of an industry's design culture, and a focused unit on constraint as one generative design method among several. Students leave with a working interactive prototype and a design framework they can defend.</p>
+    </div>
+
+    <h2>// Workload</h2>
+    <p>18 hrs/week minimum expected per student. In-class time tops out at 7 hrs/session (one day/week) — the remaining 11 hrs/week is private studio time outside class. Theory content is capped at 1–2 hrs per session; every session mixes skills content with studio time.</p>
+    <p>No class Sept 7–11 (mandatory Collaborative Design Challenge, all grad students).</p>
+
+    <h2>// Learning Objectives</h2>
+    <p>By the end of this studio, students will be able to:</p>
+    <ul>
+        <li><strong>Investigate designed objects through technological archaeology</strong> — systematic dissection and cultural/UX analysis of found electro-mechanical devices</li>
+        <li><strong>Apply constraint as a generative design method</strong>, and analyze a design culture from both a generative and critical angle</li>
+        <li><strong>Design for accessibility broadly construed</strong> — physical/sensory disability, neurodivergence, and technophobia as legitimate, distinct entry points</li>
+        <li><strong>Build technical fluency in physical computing</strong> — Arduino/ESP32 programming, fabrication, and AI-assisted tools, understood critically as well as practically</li>
+        <li><strong>Structure and deploy a project professionally</strong>, including a companion app extending hardware interactivity beyond a browser interface</li>
+        <li><strong>Design and build a working interactive prototype</strong> under a self-authored design framework they can defend</li>
+    </ul>
+
+    <div class="page-break"></div>
+
+    <h2>// Weekly Schedule</h2>
+
+    <div class="week-block">
+        <div class="week-header">Session 1 (Sept 17): Electricity Fundamentals &amp; Archaeology Launch</div>
+
+        <div class="section-label">Topics</div>
+        <ul>
+            <li>Basic electricity: voltage, current, resistance</li>
+            <li>Circuit calculations, including forward voltage drop</li>
+            <li>Introduction to the dissection method</li>
+        </ul>
+
+        <div class="section-label">Activities</div>
+        <ul>
+            <li>Hands-on experiments with batteries and LEDs</li>
+            <li>Assign dissection object</li>
+        </ul>
+
+        <div class="section-label">Assignment</div>
+        <p>Find your dissection object before Session 2</p>
+    </div>
+
+    <div class="week-block">
+        <div class="week-header">Session 2 (Sept 24): Technological Archaeology — Dissection</div>
+
+        <div class="section-label">Topics</div>
+        <ul>
+            <li>Systematic dissection methodology, from surface behavior to circuit-level analysis</li>
+            <li>Critical provocations: design assumptions in construction, planned obsolescence, the translation between circuit logic and user experience</li>
+        </ul>
+
+        <div class="section-label">Activities</div>
+        <ul>
+            <li>In-class dissection, conducted as a group</li>
+            <li>Group discussion across all objects: cultural signifiers, material choices, interactive design decisions embedded in construction</li>
+        </ul>
+
+        <div class="section-label">Assignment</div>
+        <p>Archaeology project documentation (see Assessment Structure)</p>
+    </div>
+
+    <div class="week-block">
+        <div class="week-header">Session 3 (Oct 1): Constraint as Method / Hand Made Circuits</div>
+
+        <div class="section-label">Topics</div>
+        <ul>
+            <li>Yokoi's "Lateral Thinking with Withered Technology," OULIPO, Dogme 95, Bauhaus/Vkhutemas material scarcity</li>
+        </ul>
+
+        <div class="section-label">Activities</div>
+        <ul>
+            <li>Hand Made Circuits build: copper tape, conductive ink, graphite pencil, kitchen foil, salt water, found metal — refuse the manufactured PCB</li>
+        </ul>
+
+        <div class="section-label">Assignment</div>
+        <p>Begin drafting a design framework for the semester project</p>
+    </div>
+
+    <div class="week-block">
+        <div class="week-header">Session 4 (Oct 8): Case Study — Nintendo (full day)</div>
+
+        <div class="section-label">Topics</div>
+        <ul>
+            <li>Withered tech as generative brief</li>
+            <li>Interaction design history: Wii controllers prioritizing physical gesture over graphical fidelity, in contrast to Sony/Microsoft's spec-driven approach in the same console generation</li>
+            <li>Design culture under critique: cartridge DRM, region lock, litigation against emulation/fan projects, discontinued repair support, labor conditions, e-waste</li>
+        </ul>
+
+        <div class="section-label">Activities</div>
+        <ul>
+            <li>AM: Nintendo Labo hands-on</li>
+            <li>PM: critique discussion, directly implicating the object students just built with</li>
+        </ul>
+    </div>
+
+    <div class="week-block">
+        <div class="week-header">Session 5 (Oct 15): Arduino/ESP32 Onboarding + Proposals</div>
+
+        <div class="section-label">Topics</div>
+        <ul>
+            <li>Arduino IDE setup, digital/analog I/O</li>
+            <li>ESP32 as the escalation step</li>
+        </ul>
+
+        <div class="section-label">Activities</div>
+        <ul>
+            <li>PM: proposals — students pitch their interactive prototype concept + written design framework, peer crit</li>
+        </ul>
+
+        <div class="section-label">Assignment</div>
+        <p>Submit prototype concept and design framework</p>
+    </div>
+
+    <div class="week-block">
+        <div class="week-header">Session 6 (Oct 22): Institutional/Economic Constraints</div>
+
+        <div class="section-label">Topics</div>
+        <ul>
+            <li>Client briefs, market pressure, capital as a constraint</li>
+            <li>Who imposes constraints on designers, and which are worth accepting vs. refusing</li>
+        </ul>
+
+        <div class="section-label">Activities</div>
+        <ul>
+            <li>PM: build / Arduino skills continuation</li>
+        </ul>
+    </div>
+
+    <div class="week-block">
+        <div class="week-header">Session 7 (Oct 29): AI-Assisted Code Generation</div>
+
+        <div class="section-label">Topics</div>
+        <ul>
+            <li>AI-codegen as a design tool with its own proprietary, labor, and environmental costs</li>
+        </ul>
+
+        <div class="section-label">Activities</div>
+        <ul>
+            <li>Hands-on use of AI codegen tools, with a critical framing exercise</li>
+            <li>Remainder of day: studio time</li>
+        </ul>
+    </div>
+
+    <div class="week-block">
+        <div class="week-header">Session 8 (Nov 5): Fabrication Skills</div>
+        <p style="margin-bottom: 0.75rem; color: #7a8290; font-size: 0.9rem;">Location: Port fabrication space, full day</p>
+
+        <div class="section-label">Topics</div>
+        <ul>
+            <li>Laser cutting + 3D printing — safety training and fundamentals if needed, or advanced processes if students already have this background</li>
+            <li>Design software for fabrication — vector prep for laser cutting, CAD/slicing for 3D printing</li>
+            <li>Creating custom software for design requirements: Boxes.py, custom Fusion360 plugin development</li>
+            <li>Generative software design — case studies including Jen Lewin's large-scale interactive installation work and Michael Hansmeyer's algorithmically-generated, room-scale 3D-printed architecture</li>
+        </ul>
+
+        <div class="section-label">Activities</div>
+        <ul>
+            <li>Hands-on fabrication, remainder of day is studio time</li>
+        </ul>
+    </div>
+
+    <div class="week-block break-block">
+        <div class="week-header">Break — Nov 12</div>
+        <p style="margin-bottom: 0;">No class.</p>
+    </div>
+
+    <div class="week-block">
+        <div class="week-header">Session 9 (Nov 19): Accessibility as Constraint</div>
+
+        <div class="section-label">Topics</div>
+        <ul>
+            <li>Disability-led design and the curb-cut effect — constraint-driven design that expands access</li>
+            <li>Physical/sensory disability, neurodivergence, and technophobia presented as distinct, valid entry points</li>
+        </ul>
+
+        <div class="section-label">Activities</div>
+        <ul>
+            <li>PM: build / Arduino skills continuation</li>
+        </ul>
+    </div>
+
+    <div class="week-block">
+        <div class="week-header">Session 10 (Nov 26): Advanced Hardware — ESP32 Radio &amp; Networking</div>
+
+        <div class="section-label">Topics</div>
+        <ul>
+            <li>Wireless and networked interactivity</li>
+        </ul>
+
+        <div class="section-label">Activities</div>
+        <ul>
+            <li>Remainder of day: studio time</li>
+        </ul>
+    </div>
+
+    <div class="week-block">
+        <div class="week-header">Session 11 (Dec 3): Project Design + Rapid App Deployment</div>
+
+        <div class="section-label">Topics</div>
+        <ul>
+            <li>Repository structure, backup strategy, deployment strategy</li>
+            <li>Rapid app deployment — extending hardware interactivity beyond a browser-hosted interface</li>
+        </ul>
+
+        <div class="section-label">Activities</div>
+        <ul>
+            <li>Last teaching day</li>
+        </ul>
+    </div>
+
+    <div class="week-block" style="border-left-color: #ff2ec4;">
+        <div class="week-header" style="color: #ff2ec4;">Assessment Period (Dec 10): Final Crits</div>
+        <div class="section-label">Activities</div>
+        <ul>
+            <li>Final crits, self-eval submission</li>
+        </ul>
+    </div>
+
+    <div class="page-break"></div>
+
+    <h2>// Assessment Structure</h2>
+
+    <h3>Weekly Self-Assessment &amp; Reflection — 40%</h3>
+    <p>Consistent engagement and growth analysis across the semester — a running reflective record that tracks the evolution of each student's design framework session to session, feeding directly into the final crit defense.</p>
+
+    <h3>Technological Archaeology Project — 15%</h3>
+    <p>Students perform forensic dissection of an electro-mechanical consumer device (1950s–1990s), documenting its construction, componentry, and cultural role.</p>
+
+    <div class="callout">
+        <strong>Component Weighting:</strong>
+        <ul style="margin-top: 0.5rem;">
+            <li>Investigation Manifesto: 25%</li>
+            <li>Component Dossier: 10%</li>
+            <li>Reverse-Engineered Schematics: 10%</li>
+            <li>Dissection Chronicle: 10%</li>
+            <li>Behavioral Analysis: 10%</li>
+            <li>Cultural Reflection: 35%</li>
+        </ul>
+    </div>
+
+    <h3>Hand Made Circuits — 15%</h3>
+    <p>Students build a working circuit using non-manufactured materials — copper tape, conductive ink, graphite pencil, kitchen foil, salt water, found metal — refusing the standard PCB.</p>
+
+    <div class="callout">
+        <strong>Component Weighting:</strong>
+        <ul style="margin-top: 0.5rem;">
+            <li>Artist Statement: 40%</li>
+            <li>Material Catalog: 10%</li>
+            <li>Circuit Diagram: 10%</li>
+            <li>Process Documentation: 10%</li>
+            <li>Functional Description: 10%</li>
+            <li>Critical Reflection: 20%</li>
+        </ul>
+    </div>
+
+    <h3>Accessibility Object — 15%</h3>
+    <p>Students design and build a custom input device addressing one of the accessibility entry points from Session 9 — physical/sensory disability, neurodivergence, or technophobia — as a generative design constraint.</p>
+
+    <div class="callout">
+        <strong>Component Weighting:</strong>
+        <ul style="margin-top: 0.5rem;">
+            <li>Interaction Manifesto: 40%</li>
+            <li>Technical Specifications: 10%</li>
+            <li>Circuit Architecture: 10%</li>
+            <li>Construction Documentation: 10%</li>
+            <li>Code Logic: 10%</li>
+            <li>User Experience Analysis: 20%</li>
+        </ul>
+    </div>
+
+    <h3>Final Interactive Prototype — 15%</h3>
+    <p>Students design and build a working interactive prototype under a self-authored design framework, developed from the Session 5 proposal through the Session 10 mid-point and to the Dec 10 final crits.</p>
+
+    <div class="callout">
+        <strong>Project Requirements:</strong>
+        <ul style="margin-top: 0.5rem;">
+            <li>Arduino/ESP32-based interactive system</li>
+            <li>Functioning input and output layer</li>
+            <li>Demonstrable interactivity between object and user</li>
+            <li>Defensible design framework, written and oral</li>
+        </ul>
+    </div>
+
+    <div class="callout-green">
+        <strong>Grading Philosophy:</strong> Self-assessment with instructor review. Students assess their own learning and assign a grade; instructor will not lower self-assigned grades but reserves the right to grade higher when students undervalue their work.
+    </div>
+
+    <h2>// Required Materials</h2>
+
+    <div class="materials-list">
+        <h4>Hand Made Circuits</h4>
+        <p>Copper tape, conductive ink, graphite pencils, kitchen foil, salt water, found metal objects.</p>
+    </div>
+
+    <div class="materials-list">
+        <h4>Electronics Kit</h4>
+        <p>Purchasable at the Academy tech office.</p>
+    </div>
+
+    <div class="materials-list">
+        <h4>Students Provide</h4>
+        <ul>
+            <li>Electro-mechanical device for archaeological dissection (Session 1–2)</li>
+            <li>Laptop with Arduino IDE and Android development environment installed</li>
+        </ul>
+    </div>
+
+    <h2>// Teaching Methodology</h2>
+    <p>This studio employs experiential learning methodologies prioritizing hands-on engagement with physical materials and systems. Key pedagogical approaches include:</p>
+    <ul>
+        <li><strong>Visceral Introduction to Concepts:</strong> Abstract principles are made concrete through direct physical experience before theoretical explanation</li>
+        <li><strong>Reverse Engineering / Dissection:</strong> Students learn by analyzing and understanding existing systems before creating new ones</li>
+        <li><strong>Goodwill Before Critique:</strong> Students build genuine affection for a designed object before the critical lens turns on it in the same session</li>
+        <li><strong>Progressive Complexity:</strong> Concepts build incrementally from simple to complex, ensuring a solid foundation</li>
+        <li><strong>Safe Failure Environment:</strong> Students are encouraged to experiment, break components, and learn from failures</li>
+        <li><strong>Self-Directed Assessment:</strong> Students develop metacognitive skills by assessing their own learning</li>
+    </ul>
+
+    <h2>// Important Policies</h2>
+
+    <h3>Accommodation Statement</h3>
+    <p>Students requiring accommodations should contact the instructor during the first week of the course to discuss needs and arrange appropriate support.</p>
+
+    <h3>Academic Integrity</h3>
+    <p>Students are expected to complete all work honestly and give proper credit for ideas and assistance received from others. Collaboration on learning exercises is encouraged; the final prototype should represent individual work unless otherwise specified.</p>
+
+    <div class="footer">
+        <p>NSCAD University // MDES 6530 Project Studio // Fall 2026</p>
+    </div>
+</body>
+</html>
