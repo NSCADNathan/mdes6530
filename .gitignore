@@ -9,3 +9,6 @@ memory/
 # OS / editor cruft
 .DS_Store
 *.swp
+
+# Slide viewer PDFs are published content
+!01-Electricity/viewer/*.pdf
