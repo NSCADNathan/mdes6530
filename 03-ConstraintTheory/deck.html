@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Constraint as Method — MDES6530 Session 3</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #666;
+    --accent: #b33;
+    --rule: #ccc;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.55;
+  }
+  .slide {
+    min-height: 100vh;
+    padding: 2.5rem 3rem;
+    max-width: 960px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--rule);
+    page-break-after: always;
+    background: var(--bg);
+  }
+  .slide-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1.25rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .slide-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--fg);
+    line-height: 1.2;
+  }
+  .subhead {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 0.75rem 0 0.25rem;
+    color: var(--fg);
+  }
+  .body {
+    font-size: 1rem;
+    margin: 0.4rem 0;
+    max-width: 55ch;
+  }
+  .small {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin: 0.25rem 0;
+  }
+  .slide-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0.5rem 0;
+    font-size: 0.92rem;
+  }
+  .slide-table th, .slide-table td {
+    border: 1px solid var(--rule);
+    padding: 0.35rem 0.6rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  .slide-table th {
+    background: #f5f5f5;
+    font-weight: 600;
+  }
+  .slide-table td:first-child {
+    font-weight: 600;
+    white-space: nowrap;
+    width: 3rem;
+    text-align: center;
+  }
+  .slide img {
+    display: block;
+    margin: 0.5rem auto;
+    max-width: 100%;
+    max-height: 60vh;
+    object-fit: contain;
+    border: 1px solid var(--rule);
+  }
+  .footer {
+    margin-top: 2rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.75rem;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+  }
+  .caption {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 0.2rem;
+    max-width: 50ch;
+  }
+  @media (max-width: 640px) {
+    .slide { padding: 1.5rem 1.25rem; }
+    .slide-title { font-size: 1.2rem; }
+  }
+</style>
+</head>
+<body>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 1 / 67</span></div>
+  <p class="small" style="font-size:10.5pt;">DESIGN STUDIES · SESSION 3 · OCT 1</p>
+  <p class="subhead" style="font-size:25.0pt;font-weight:bold;">Seven movements | six decades 
+-
+Constraint | chosen or imposed</p>
+  <p class="small" style="font-size:10.5pt;">Eames 1946 · Bauhaus 1919 · Vkhutemas 1920 · OULIPO 1960 · Dogme 95 1995 · CD-ROM 1993 · Software 1985 · Dashboards 2009—</p>
+  <p class="small" style="font-size:8.0pt;">1/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+<div class="footer"><span>Constraint as Method</span><span>1/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 2 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">EAMES 1946</p>
+  <h2 class="slide-title" style="font-size:29.0pt;font-weight:bold;">The object makes the argument.</h2>
+  <p class="body" style="font-size:14.5pt;">“I have never been forced to accept compromises, but I have willingly accepted constraints.” — Charles Eames.</p>
+  <img src="images/slide2_0.png" alt="Picture 7" style="max-width:224px;max-height:322px;" />
+  <img src="images/slide2_0.png" alt="Picture 8" style="max-width:204px;max-height:307px;" />
+  <img src="images/slide2_0.png" alt="Picture 9" style="max-width:303px;max-height:329px;" />
+  <p class="small" style="font-size:7.5pt;">Herman Miller · Eames LCW / DCW molded-plywood chairs · product photography, hermanmiller.com</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">The LCW, 1946</p>
+  <p class="body" style="font-size:11.5pt;">The Molded Plywood Lounge Chair. The material constraint — the grain limits of plywood, the press itself — produced the form. The object is the argument.</p>
+  <p class="small" style="font-size:8.0pt;">2/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+<div class="footer"><span>Constraint as Method</span><span>2/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 3 / 67</span></div>
+  <p class="small" style="font-size:10.5pt;">THE INVERSION · EAMES → IVE</p>
+  <p class="subhead" style="font-size:22.0pt;font-weight:bold;">Eames sculpted material to the body.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">Body-first, 1946</p>
+  <p class="body" style="font-size:11.5pt;">Leg splints for the Navy, then the molded chair shells — material shaped to a measured human form as a discipline. The object serves the user's body first.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">Brand-first, post-2007</p>
+  <p class="body" style="font-size:11.5pt;">The fixed form language came first; the body adapts. Antenna-gate is the clean public case — a shell chosen for looks degraded signal in an ordinary grip, and Apple's answer was “you're holding it wrong.”</p>
+  <p class="small" style="font-size:8.0pt;">3/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide3_1.jpg" alt="Picture 14" style="max-width:512px;max-height:200px;" />
+  <img src="images/slide2_0.png" alt="Picture 13" style="max-width:90px;max-height:399px;" />
+  <img src="images/slide2_0.png" alt="Picture 16" style="max-width:512px;max-height:232px;" />
+  <p class="subhead" style="font-size:22.0pt;font-weight:bold;">Apple asked the body to conform to the brand.</p>
+<div class="footer"><span>Constraint as Method</span><span>3/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 4 / 67</span></div>
+  <p class="small" style="font-size:10.5pt;">THE INVERSION, CONCRETELY · IPHONE 4, 2010</p>
+  <img src="images/slide2_0.png" alt="Picture 15" style="max-width:743px;max-height:458px;" />
+  <p class="subhead" style="font-size:22.0pt;font-weight:bold;">“You're holding it wrong.”</p>
+  <p class="body" style="font-size:14.5pt;">The iPhone 4's external antenna band looked seamless and minimal — and the ordinary palm-over-the-corner grip bridged the gap and ate the signal. Apple's public position: the user's hand was the defect.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">The engineering read</p>
+  <p class="body" style="font-size:11.5pt;">A flat, palm-wide body with a metal band across the grip zone — a form language chosen for surface, then a usage story worked out around the user rather than for them.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">The Eames contrast</p>
+  <p class="body" style="font-size:11.5pt;">Eames measured a human body and shaped the material to it. Here the object is fixed and the body is asked to adapt — the inversion in a single anecdote.</p>
+  <p class="small" style="font-size:8.0pt;">4/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+<div class="footer"><span>Constraint as Method</span><span>4/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 5 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">EAMES VS IVE, CAVEAT 1998–2005</p>
+  <p class="small" style="font-size:10.5pt;">NOT A MORALITY TALE</p>
+  <p class="subhead" style="font-size:22.0pt;font-weight:bold;">Early Ive made real ergonomic arguments.</p>
+  <p class="body" style="font-size:14.5pt;">The iMac G3's translucent shell bundled everything into one sculpted housing; the original iPod's click wheel gave one-finger, eyes-free control. The body-first instinct was there — the pure surface language is the post-iPhone shift, not the whole Ive era.</p>
+  <p class="small" style="font-size:8.0pt;">5/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide2_0.png" alt="Picture 12" style="max-width:370px;max-height:345px;" />
+  <img src="images/slide2_0.png" alt="Picture 13" style="max-width:513px;max-height:342px;" />
+  <img src="images/slide2_0.png" alt="Picture 15" style="max-width:484px;max-height:484px;" />
+<div class="footer"><span>Constraint as Method</span><span>5/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 6 / 67</span></div>
+  <p class="small" style="font-size:10.5pt;">SPECULATIVE EXTENSION — AN OPEN QUESTION.</p>
+  <h2 class="slide-title" style="font-size:32.0pt;font-weight:bold;">Who is the object designed for now?</h2>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">Serving the pipeline</p>
+  <p class="body" style="font-size:11.5pt;">When an object's shape follows the sensor, the cloud, the optimal information collection — the human hand becomes one input among many, not the thing the design resolves around.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">Eames, inverted twice</p>
+  <p class="body" style="font-size:11.5pt;">Body-to-material becomes material-to-body, then material-to-model. The model is both physical and metaphysical.  The substituted object isn't ergonomic anymore — it's a housing for data.</p>
+  <p class="small" style="font-size:8.0pt;">6/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide2_0.png" alt="Picture 15" style="max-width:302px;max-height:275px;" />
+  <img src="images/slide2_0.png" alt="Picture 18" style="max-width:200px;max-height:213px;" />
+  <img src="images/slide2_0.png" alt="Picture 19" style="max-width:548px;max-height:579px;" />
+<div class="footer"><span>Constraint as Method</span><span>6/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 7 / 67</span></div>
+  <p class="small" style="font-size:10.5pt;">THE TIPPING-POINT QUESTION</p>
+  <p class="subhead" style="font-size:22.0pt;font-weight:bold;">At some point, the consumer stops being who the system is designed for.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">Where the allegiance goes</p>
+  <p class="body" style="font-size:11.5pt;">Advertisers, shareholders, model-training pipelines — every designer in software has felt the user become a constituency among others, not the client.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">Session 5 callback</p>
+  <p class="body" style="font-size:11.5pt;">This is the one-line bridge: “remember the Eames/Ive tension from Session 3.” AI-assisted programming makes the same shift visible inside the toolchain itself.</p>
+  <p class="small" style="font-size:8.0pt;">7/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide2_0.png" alt="Picture 14" style="max-width:534px;max-height:300px;" />
+  <img src="images/slide2_0.png" alt="Picture 4" style="max-width:257px;max-height:271px;" />
+<div class="footer"><span>Constraint as Method</span><span>7/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 8 / 67</span></div>
+  <p class="small" style="font-size:10.5pt;">HANDS-ON, CONCRETE DESIGN EXPERIENCE</p>
+  <p class="subhead" style="font-size:22.0pt;font-weight:bold;">Hold these — feel the difference in your hand, not the specs.</p>
+  <p class="body" style="font-size:14.5pt;">Flat bodies first: the Hasselblad 500 and Mamiya Super have no molded grip — held by the whole palm. The Olympus OM-3 is Maitani's minimal-mass slab, small enough that the whole hand cups it. The Fuji X-T3 has a real sculpted grip.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">What to notice</p>
+  <p class="body" style="font-size:11.5pt;">Larger hands will likely fatigue faster on the small sculpted grip than on the flat bodies — even though the flat bodies aren't lighter.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">Why</p>
+  <p class="body" style="font-size:11.5pt;">A sculpted grip loads the fingers isometrically — one fixed curled position, blood flow cut off, fatiguing fast in a small zone. A flat body spreads the same or greater weight across palm and forearm.</p>
+  <p class="small" style="font-size:8.0pt;">8/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide2_0.png" alt="Picture 14" style="max-width:314px;max-height:235px;" />
+  <img src="images/slide2_0.png" alt="Picture 15" style="max-width:327px;max-height:246px;" />
+  <img src="images/slide2_0.png" alt="Picture 16" style="max-width:208px;max-height:176px;" />
+  <img src="images/slide2_0.png" alt="Picture 17" style="max-width:233px;max-height:215px;" />
+<div class="footer"><span>Constraint as Method</span><span>8/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 9 / 67</span></div>
+  <p class="small" style="font-size:10.5pt;">THE THEORY THE PASS-AROUND EARNS · DANIELS, 1952</p>
+  <p class="subhead" style="font-size:22.0pt;font-weight:bold;">Designing to an “average” fits nobody.</p>
+  <p class="body" style="font-size:14.5pt;">Gilbert Daniels audited USAF cockpits built to the “average” pilot across ten body measurements — and not one pilot matched the average on all ten. The average pilot fit nobody.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">What you just felt</p>
+  <p class="body" style="font-size:11.5pt;">A grip sized for an assumed “normal” hand doesn't just feel slightly off for outlier hands — it concentrates strain in exactly the population it wasn't built for.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">The fix isn't a better average</p>
+  <p class="body" style="font-size:11.5pt;">It's removing the assumption of a “typical” hand altogether — which is exactly what the grip-less flat body does.</p>
+  <p class="small" style="font-size:8.0pt;">9/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide2_0.png" alt="Picture 16" style="max-width:382px;max-height:439px;" />
+<div class="footer"><span>Constraint as Method</span><span>9/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 10 / 67</span></div>
+  <p class="small" style="font-size:10.5pt;">THE FRAMING SLIDE</p>
+  <p class="subhead" style="font-size:22.0pt;font-weight:bold;">Constraint can be chosen or imposed — either way, expert designers turn it into a durable design language.</p>
+  <p class="body" style="font-size:14.5pt;">Some movements chose their constraint; others had it forced on them by economic collapse or state decree. Either way the mechanism is the same — not working around the limit, building on it.</p>
+  <p class="body" style="font-size:11.5pt;">OULIPO chosen · literature</p>
+  <p class="small" style="font-size:8.5pt;">chosen · literature</p>
+  <p class="body" style="font-size:11.5pt;">Dogme 95 chosen · film</p>
+  <p class="small" style="font-size:8.5pt;">chosen · film</p>
+  <p class="body" style="font-size:11.5pt;">Bauhaus / Vkhutemas imposed · scarcity</p>
+  <p class="small" style="font-size:8.5pt;">imposed · scarcity</p>
+  <p class="small" style="font-size:10.0pt;">The survey ahead: Bauhaus · Vkhutemas · OULIPO · Dogme 95 · the CD-ROM bridge into software · touchscreen dashboards — six case studies, one mechanism.</p>
+  <p class="small" style="font-size:8.0pt;">10/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+<div class="footer"><span>Constraint as Method</span><span>10/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 11 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">BAUHAUS 1919–1922</p>
+  <p class="small" style="font-size:10.5pt;">ACT I · CRAFT-GUILD ROMANTICISM</p>
+  <h2 class="slide-title" style="font-size:29.0pt;font-weight:bold;">Anti-machine from the start.</h2>
+  <p class="body" style="font-size:14.5pt;">Gropius's 1919 manifesto is deliberately medieval: “Let us create a new guild of craftsmen without the class-distinctions.” The cover — a Feininger Gothic cathedral woodcut — and Itten's mystical, hand-craft-first pedagogy are the opposite of what “Bauhaus” means today.</p>
+  <img src="images/slide11_2.jpg" alt="Picture 7" style="max-width:589px;max-height:416px;" />
+  <p class="small" style="font-size:7.5pt;font-style:italic;">Feininger, Der Dom — Gothic-cathedral idiom · public domain · Wikimedia Commons</p>
+  <p class="small" style="font-size:8.0pt;">11/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+<div class="footer"><span>Constraint as Method</span><span>11/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 12 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">BAUHAUS 1923</p>
+  <p class="small" style="font-size:10.5pt;">THE FORCED PIVOT</p>
+  <h2 class="slide-title" style="font-size:40.0pt;font-weight:bold;">Ornament costs what the</h2>
+  <p class="body" style="font-size:14.5pt;">Weimar hyperinflation hit 4.2 trillion marks to the dollar — wages carried home in wheelbarrows, a loaf of bread from 1 mark (1919) to 200 billion (1923). Gropius overruled Itten: “Art and Technology — a New Unity.” The school was going broke and needed sellable industrial designs to survive. The pivot wasn't aesthetic — it was scarcity.</p>
+  <img src="images/slide11_2.jpg" alt="Picture 7" style="max-width:371px;max-height:538px;" />
+  <p class="small" style="font-size:7.5pt;">Weimar, 1923: wallpapering with banknotes · Bundesarchiv · CC BY-SA 3.0 de</p>
+  <p class="small" style="font-size:8.0pt;">12/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <h2 class="slide-title" style="font-size:29.0pt;font-weight:bold;">country didn't have.</h2>
+<div class="footer"><span>Constraint as Method</span><span>12/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 13 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">BAUHAUS 1925–1933</p>
+  <p class="small" style="font-size:10.5pt;">ACT III · THE NEW LANGUAGE</p>
+  <h2 class="slide-title" style="font-size:29.0pt;font-weight:bold;">Replacing cathedral with factory.</h2>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">The grammar we live inside</p>
+  <p class="body" style="font-size:11.5pt;">Tubular steel furniture (Breuer's Wassily Chair), glass curtain walls, geometric minimalism, primary colors, honesty of materials — plus a stripped single-case sans font for the school's own identity (Herbert Bayer's Universal) and weaving raised into a discipline (Anni Albers). It became the world's design language — as a mechanical adornment replacing hand-crafted ornament.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">The cultural cost</p>
+  <p class="body" style="font-size:11.5pt;">The bespoke craftsperson was structurally replaced by anonymous, standardized, mass-produced design. Bauhaus first tried to save the craftsperson before scarcity forced the pivot. While this modernist language is revered in design circles everywhere, there was a real loss:  Creative hand made craft replaced by metal forming machines.</p>
+  <p class="small" style="font-size:8.0pt;">13/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide2_0.png" alt="Picture 18" style="max-width:373px;max-height:373px;" />
+  <img src="images/slide2_0.png" alt="Picture 19" style="max-width:205px;max-height:474px;" />
+  <p class="small" style="font-size:11.0pt;font-style:italic;">Marcel Breuer &amp; Gunta Stölzl, Afrikanischer Stuhl, 1921</p>
+  <p class="small" style="font-size:11.0pt;font-style:italic;">Marcel Breuer, Model B3 (Wassily Chair), 1925</p>
+<div class="footer"><span>Constraint as Method</span><span>13/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 14 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">BAUHAUS 1925–29</p>
+  <p class="small" style="font-size:10.5pt;">THE WORKS · ARCHITECTURE &amp; FURNITURE</p>
+  <h2 class="slide-title" style="font-size:32.0pt;font-weight:bold;">Structure on display, at building scale.</h2>
+  <p class="body" style="font-size:14.5pt;">The Dessau building — glass curtain walls, a plan whose wings stay legible from the street, steel frame left open — completes the move Fagus first made in 1911 and hands the grammar to the International Style. The same instinct bends flat metal stock into a chair.</p>
+  <p class="small" style="font-size:8.0pt;">14/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide11_2.jpg" alt="Picture 18" style="max-width:434px;max-height:338px;" />
+  <p class="small" style="font-size:7.5pt;">Bauhaus building, Dessau · 1925, Gropius &amp; Meyer · CC BY-SA 4.0</p>
+  <img src="images/slide2_0.png" alt="Picture 20" style="max-width:343px;max-height:338px;" />
+  <p class="small" style="font-size:7.5pt;">Barcelona Chair Mies van der Rohe, 1929</p>
+<div class="footer"><span>Constraint as Method</span><span>14/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 15 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">BAUHAUS 1925–29</p>
+  <p class="small" style="font-size:10.5pt;">THE WORKS · ARCHITECTURE &amp; FURNITURE</p>
+  <h2 class="slide-title" style="font-size:32.0pt;font-weight:bold;">Structure on display, at domestic scale.</h2>
+  <p class="body" style="font-size:16.0pt;">Brandt's tea infuser shows its seams. Wagenfeld's lamp shows its wiring. Nothing is dressed up to look like more than what it is — the same honesty the building argues at a scale you can hold</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">Small objects, same rule</p>
+  <p class="body" style="font-size:11.5pt;">Brandt's tea infuser and Wagenfeld's lamp reduce familiar domestic things to their bare geometry — the same grammar at teaspoon scale.</p>
+  <p class="small" style="font-size:8.0pt;">15/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide2_0.png" alt="Picture 14" style="max-width:437px;max-height:234px;" />
+  <img src="images/slide2_0.png" alt="Picture 18" style="max-width:473px;max-height:473px;" />
+<div class="footer"><span>Constraint as Method</span><span>15/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 16 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">BAUHAUS 1923–25</p>
+  <p class="small" style="font-size:10.5pt;">THE WORKS · OBJECTS</p>
+  <h2 class="slide-title" style="font-size:29.0pt;font-weight:bold;">Prototypes licence the factory.</h2>
+  <p class="body" style="font-size:14.5pt;">After the pivot, the workshops built sellable prototypes for industry instead of one-offs for collectors — geometry stripped to what a factory could repeat at scale.</p>
+  <img src="images/slide11_2.jpg" alt="Picture 7" style="max-width:155px;max-height:323px;" />
+  <p class="small" style="font-size:7.5pt;">Table lamp Jucker &amp; Wagenfeld, 1923–24 · CC BY-SA 3.0</p>
+  <img src="images/slide11_2.jpg" alt="Picture 9" style="max-width:347px;max-height:326px;" />
+  <p class="small" style="font-size:7.5pt;">Wassily chair Breuer, 1925–26 · CC BY-SA 4.0</p>
+  <img src="images/slide11_2.jpg" alt="Picture 11" style="max-width:326px;max-height:326px;" />
+  <p class="small" style="font-size:7.5pt;">Cradle Keler, 1922 · public domain</p>
+  <p class="small" style="font-size:8.0pt;">16/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+<div class="footer"><span>Constraint as Method</span><span>16/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 17 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">BAUHAUS 1923</p>
+  <p class="small" style="font-size:10.5pt;">THE WORKS · GRAPHICS</p>
+  <h2 class="slide-title" style="font-size:29.0pt;font-weight:bold;">A shared identity, printed.</h2>
+  <p class="body" style="font-size:14.5pt;">For the 1923 Weimar exhibition the school issued a common visual system across advertising sheets and postcards — the Bauhaus head mark, flat geometric shapes, no ornament. Identity made repeatable, like the products.</p>
+  <img src="images/slide11_2.jpg" alt="Picture 7" style="max-width:263px;max-height:261px;" />
+  <p class="small" style="font-size:7.5pt;">Advertising sheet Schlemmer, c.1923 · CC0</p>
+  <img src="images/slide11_2.jpg" alt="Picture 9" style="max-width:173px;max-height:261px;" />
+  <p class="small" style="font-size:7.5pt;">Exhibition postcard Moholy-Nagy, 1923 · public domain</p>
+  <img src="images/slide11_2.jpg" alt="Picture 11" style="max-width:174px;max-height:261px;" />
+  <p class="small" style="font-size:7.5pt;">Exhibition postcard Kandinsky, 1923 · public domain</p>
+  <p class="small" style="font-size:8.0pt;">17/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+<div class="footer"><span>Constraint as Method</span><span>17/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 18 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">BAUHAUS 1919–31</p>
+  <p class="small" style="font-size:10.5pt;">THE WORKS · COLOR &amp; FORM THEORY</p>
+  <h2 class="slide-title" style="font-size:29.0pt;font-weight:bold;">Under the products: one taught grammar.</h2>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">Shape as speech</p>
+  <p class="body" style="font-size:11.5pt;">Circle, square, triangle paired with primary hues as inherent carriers of psychological weight — a course, not a style, taught before anyone touched a product.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">Curriculum before objects</p>
+  <p class="body" style="font-size:11.5pt;">The palette and the grid were the layer every workshop drew from, rather than a finish applied at the end.</p>
+  <p class="small" style="font-size:8.0pt;">18/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide11_2.jpg" alt="Picture 22" style="max-width:396px;max-height:592px;" />
+<div class="footer"><span>Constraint as Method</span><span>18/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 19 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">BAUHAUS 1920S</p>
+  <p class="small" style="font-size:10.5pt;">THE WORKS · TEXTILES</p>
+  <h2 class="slide-title" style="font-size:29.0pt;font-weight:bold;">A craft filed as “women's work,” raised into a discipline.</h2>
+  <p class="body" style="font-size:14.5pt;">Anni Albers elevated weaving — historically dismissed as secondary to fine art — into rigorous, materially inventive design. The school funneled many of its female students into the weaving workshop regardless of stated preference: a real tension inside an institution that publicly claimed no class-distinctions between craftsmen and artists.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">The gender politics, named</p>
+  <p class="body" style="font-size:11.5pt;">The workshop produced some of the school's most respected work — while functioning as the default destination for women's labor.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">Same grammar</p>
+  <p class="body" style="font-size:11.5pt;">Geometric, materially honest, repeatable — the weaving joined the same mechanical-adornment language as the steel frames and glass walls.</p>
+  <p class="small" style="font-size:8.0pt;">19/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+<div class="footer"><span>Constraint as Method</span><span>19/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 20 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">BAUHAUS 1919–1933</p>
+  <p class="small" style="font-size:10.5pt;">THE THROUGHLINE ACROSS EVERY OUTPUT</p>
+  <p class="subhead" style="font-size:22.0pt;font-weight:bold;">One move, applied to every material.</p>
+  <p class="body" style="font-size:14.5pt;">Take a familiar object or discipline, strip it to its structural and functional essentials, leave the underlying material and construction visible rather than disguised — and treat that visibility itself as the new ornament.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">The “new mechanical adornment”</p>
+  <p class="body" style="font-size:11.5pt;">Rivets, tubular-steel joints, the exposed grid of the typography, the visible glass curtain wall — all doing the decorative work ornament used to do, honestly, out of what machine and material actually are.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">The genuine cost</p>
+  <p class="body" style="font-size:11.5pt;">The bespoke craftsperson was structurally replaced by anonymous, standardized, mass-produced design. Bauhaus first tried to save the craftsperson (Act I) before scarcity forced the opposite bet — a real loss, not just progress.</p>
+  <p class="small" style="font-size:8.0pt;">20/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+<div class="footer"><span>Constraint as Method</span><span>20/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 21 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">BAUHAUS 1925 → NOW</p>
+  <p class="small" style="font-size:10.5pt;">POSTSCRIPT · WHO INHERITS THE GRAMMAR</p>
+  <h2 class="slide-title" style="font-size:29.0pt;font-weight:bold;">Same grammar, opposite economics.</h2>
+  <p class="body" style="font-size:14.5pt;">The honesty Bauhaus won — visible structure, nothing disguised — got dressed differently by the industry that inherited it. Rams held it as discipline at Braun (“less but better”); decades later, Apple adopted Rams's entire vocabulary.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">IKEA — the constraint confesses</p>
+  <p class="body" style="font-size:11.5pt;">Flat-pack geometry is a real material constraint — shipping and assembly cost. Its minimalism is honest about the trade: cheap materials, short lifespan, bought in the open for an affordable price.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">Apple — the constraint launders</p>
+  <p class="body" style="font-size:11.5pt;">Same grammar, but no scarcity behind it: glued batteries, pentalobe screws, a repair-hostile unibody are chosen decisions, not constraint. Hardware margins run 35–40% — while Foxconn survives on single digits.</p>
+  <p class="small" style="font-size:8.0pt;">21/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide2_0.png" alt="Picture 19" style="max-width:260px;max-height:391px;" />
+<div class="footer"><span>Constraint as Method</span><span>21/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 22 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">BAUHAUS POSTSCRIPT 2010</p>
+  <p class="small" style="font-size:10.5pt;">THE MECHANISM, MADE CONCRETE</p>
+  <p class="subhead" style="font-size:22.0pt;font-weight:bold;">The look is cheap to manufacture; the cost lands elsewhere.</p>
+  <p class="body" style="font-size:14.5pt;">The glued, portless, repair-hostile Apple object isn't just a look — it's a real cost-saving mechanism, and the savings have a visible destination.</p>
+  <h2 class="slide-title" style="font-size:33.0pt;font-weight:bold;">35–40%</h2>
+  <p class="small" style="font-size:11.0pt;">Apple's hardware gross margins, company-wide — the company that sets the price.</p>
+  <h2 class="slide-title" style="font-size:33.0pt;font-weight:bold;">single digits</h2>
+  <p class="small" style="font-size:11.0pt;">Foxconn's operating margins — the contract manufacturer absorbing the labor cost and margin pressure required to hit that price.</p>
+  <p class="small" style="font-size:10.0pt;">The causal chain runs straight from this design choice to the labor cost. Next: where the savings actually go.</p>
+  <p class="small" style="font-size:8.0pt;">22/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+<div class="footer"><span>Constraint as Method</span><span>22/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 23 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">BAUHAUS POSTSCRIPT 2010</p>
+  <p class="small" style="font-size:10.5pt;">THE MECHANISM'S DESTINATION</p>
+  <p class="subhead" style="font-size:22.0pt;font-weight:bold;">Shared differently: buybacks and dividends, not margins.</p>
+  <p class="body" style="font-size:14.5pt;">Apple's dominant use of the cash its margins capture has been shareholder returns — buybacks and dividends — rather than absorbing more of the production cost itself. The company setting the price doesn't employ the people bearing the cost of hitting it.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">The 2010 toll</p>
+  <p class="body" style="font-size:11.5pt;">At least 14 deaths, 18 attempts among Foxconn workers in 2010; nets went up around the dormitories immediately, and Tim Cook, CEO from 2012, toured the factory floor that year, with reported no-suicide pledges following.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">Honest complication</p>
+  <p class="body" style="font-size:11.5pt;">Thinness, rigidity, and water resistance are real engineering goals the glued build serves. The critique isn't that the logic is fake — it's that repair-hostility rides along with a version of those goals that also kills third-party repair and extends replacement cycles.</p>
+  <p class="small" style="font-size:8.0pt;">23/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+<div class="footer"><span>Constraint as Method</span><span>23/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 24 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">BAUHAUS 1932–1933</p>
+  <p class="small" style="font-size:10.5pt;">ACT IV · CLOSURE BY FORCE</p>
+  <h2 class="slide-title" style="font-size:29.0pt;font-weight:bold;">Shut by police, not by economics.</h2>
+  <p class="body" style="font-size:14.5pt;">The Nazi-controlled Dessau city council closed the school in 1932; the diminished Berlin operation was shut under direct police pressure in April 1933, weeks after Hitler took power. The school's visual language — flat roofs, glass walls, exposed steel — was labeled “degenerate” and at times “Bolshevist”: a political and racial threat, not a taste disagreement.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">A structurally inevitable collision</p>
+  <p class="body" style="font-size:11.5pt;">Hitler, a twice-rejected Vienna Academy painting applicant, and Speer built heroic neoclassicism at monumental scale — architecture to make the individual feel small before the state. The opposite answer to the same question: what is a building for?</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">Un-German, on the record</p>
+  <p class="body" style="font-size:11.5pt;">Design that makes the honest object legible is the natural enemy of design built to overwhelm the individual with state grandeur. The two aesthetics could not coexist.</p>
+  <p class="small" style="font-size:8.0pt;">24/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide2_0.png" alt="Picture 16" style="max-width:278px;max-height:393px;" />
+<div class="footer"><span>Constraint as Method</span><span>24/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 25 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">BAUHAUS, EXPORTED 1933→</p>
+  <p class="small" style="font-size:10.5pt;">WHY ITS INFLUENCE WENT GLOBAL</p>
+  <p class="subhead" style="font-size:22.0pt;font-weight:bold;">Nearly the entire senior faculty fled — and kept teaching.</p>
+  <p class="body" style="font-size:14.5pt;">Gropius, Mies, Moholy-Nagy, the Alberses, and Breuer left for the US as the ground gave way — though Mies first sought accommodation with the regime before emigrating in 1938 — and rebuilt the pedagogy here.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">The paths</p>
+  <p class="body" style="font-size:11.5pt;">Albers → Black Mountain College, then Yale, carrying color theory into a new generation. Moholy-Nagy → the “New Bauhaus” in Chicago (1937), later the Institute of Design inside IIT. Gropius → chair of Harvard's GSD. Mies → IIT's architecture program and campus.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">If the school had just closed</p>
+  <p class="body" style="font-size:11.5pt;">The pedagogy likely stays a German story. It became the default model for design education worldwide because its faculty were forcibly exiled into the institutions that trained the next generation of American designers.</p>
+  <p class="small" style="font-size:8.0pt;">25/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide2_0.png" alt="Picture 16" style="max-width:315px;max-height:407px;" />
+<div class="footer"><span>Constraint as Method</span><span>25/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 26 / 67</span></div>
+  <p class="small" style="font-size:10.5pt;">WHAT “BAUHAUS MEANT” · THREE DISTINCT CLAIMS</p>
+  <p class="subhead" style="font-size:22.0pt;font-weight:bold;">Not one thing — three.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">1 · The teaching model</p>
+  <p class="body" style="font-size:11.5pt;">A foundational course — the Vorkurs: shared materials, form, and color before specialization — then workshop-based specialization, art and technical training under one roof. This course's own structure, and NSCAD's, descends from it directly.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">2 · A new profession</p>
+  <p class="body" style="font-size:11.5pt;">“Industrial designer” became its own category — distinct from fine artist and craftsman, defined by designing for mass reproduction as the primary condition of the work.</p>
+  <p class="body" style="font-size:11.5pt;font-weight:bold;">3 · POLITICAL DEATH</p>
+  <p class="body" style="font-size:12.0pt;">Unlike the Act II pivot — economic — the closure was political. Design pedagogy influential enough to be exported by force: design schools worldwide look like Bauhaus because its teachers were driven out of the country trying to suppress it, into the country that defined 20th-century design education.</p>
+  <p class="small" style="font-size:8.0pt;">26/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+<div class="footer"><span>Constraint as Method</span><span>26/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 27 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">VKHUTEMAS 1920–1930</p>
+  <p class="small" style="font-size:10.5pt;">IMPOSED FROM DAY ONE</p>
+  <h2 class="slide-title" style="font-size:29.0pt;font-weight:bold;">No Act I to abandon.</h2>
+  <p class="body" style="font-size:14.5pt;">Founded by Lenin's decree in December 1920, during civil war and war communism — active famine, severe shortages as the operating condition. There was no craft-romantic phase to discard; standardization-first, materials-efficient design was the founding state itself — art in direct service of state industrial production, free and open to anyone over 16.</p>
+  <img src="images/slide11_2.jpg" alt="Picture 7" style="max-width:525px;max-height:361px;" />
+  <p class="small" style="font-size:7.5pt;">Alexander Rodchenko — Vkhutemas master · public domain · Wikimedia Commons</p>
+  <p class="small" style="font-size:10.0pt;">The primer, Rodchenko's course: five sheets of paper, proportion 2:3, and three shapes — circle · triangle · rectangle. The same exercise runs after this section.</p>
+  <p class="small" style="font-size:8.0pt;">27/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+<div class="footer"><span>Constraint as Method</span><span>27/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 28 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">VKHUTEMAS 1921</p>
+  <p class="small" style="font-size:10.5pt;">THE WORKS · SPACE</p>
+  <h2 class="slide-title" style="font-size:29.0pt;font-weight:bold;">Space built, not painted.</h2>
+  <p class="body" style="font-size:14.5pt;">Rodchenko's suspended constructions — shown at the 1921 OBMOXU exhibition — build structure from intersecting planes in real space, and prefigure the workshop discipline he carried into Vkhutemas: construction before ornament.</p>
+  <img src="images/slide11_2.jpg" alt="Picture 7" style="max-width:557px;max-height:397px;" />
+  <p class="small" style="font-size:7.5pt;">2nd OBMOXU exhibition, Moscow, 1921 installations by Rodchenko and others · public domain</p>
+  <p class="small" style="font-size:8.0pt;">28/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+<div class="footer"><span>Constraint as Method</span><span>28/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 29 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">VKHUTEMAS 1924</p>
+  <p class="small" style="font-size:10.5pt;">THE WORKS · TEXTILE</p>
+  <h2 class="slide-title" style="font-size:29.0pt;font-weight:bold;">The grid goes to the factory.</h2>
+  <p class="body" style="font-size:14.5pt;">Popova moved from easel composition to bolt-printed cloth — the constructivist grid re-tooled for factory garments at scale. Pattern as production, geometry you could weave.</p>
+  <img src="images/slide11_2.jpg" alt="Picture 7" style="max-width:277px;max-height:342px;" />
+  <p class="small" style="font-size:7.5pt;">Textile design Popova, c.1924 · public domain</p>
+  <img src="images/slide11_2.jpg" alt="Picture 9" style="max-width:500px;max-height:349px;" />
+  <p class="small" style="font-size:7.5pt;">Fabric print, “stars in circles” Popova, c.1924 · CC BY-SA 4.0</p>
+  <p class="small" style="font-size:8.0pt;">29/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+<div class="footer"><span>Constraint as Method</span><span>29/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 30 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">VKHUTEMAS, INVERTED 1990S–2010S</p>
+  <p class="small" style="font-size:10.5pt;">THE CONDITION, ELSEWHERE AND NOW</p>
+  <h2 class="slide-title" style="font-size:29.0pt;font-weight:bold;">Imposed scarcity can foster creativity.</h2>
+  <p class="body" style="font-size:14.5pt;">Does imposed constraint produce worse design than market constraint — or just a different set of failure modes?  More importantly, is it a different set of success modes?</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">Cuba · Período Especial</p>
+  <p class="body" style="font-size:11.5pt;">Bicimáquinas, embargo engineering, Soviet appliances kept running decades past their design life — real material scarcity tied to an explicit political condition, producing ingenuity out of necessity rather than choice.</p>
+  <p class="small" style="font-size:8.0pt;">30/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide11_2.jpg" alt="Picture 16" style="max-width:329px;max-height:220px;" />
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">~ Ernesto  Oroza</p>
+  <p class="small" style="font-size:8.0pt;font-style:italic;">Little Havana Lamp shade. Ernesto Oroza for Alejandra Von Hartz Gallery 2009.</p>
+  <p class="body" style="font-size:12.0pt;font-style:italic;">Individuals began to assemble in their own homes machines that repeated this productive process in which hand gestures were fused with industrial technological principles.</p>
+  <img src="images/slide2_0.png" alt="Picture 21" style="max-width:476px;max-height:169px;" />
+<div class="footer"><span>Constraint as Method</span><span>30/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 31 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">VKHUTEMAS, INVERTED 1990S–2010S</p>
+  <p class="small" style="font-size:10.5pt;">THE CONDITION, ELSEWHERE AND NOW</p>
+  <h2 class="slide-title" style="font-size:29.0pt;font-weight:bold;">Chosen scarcity can foster creativity.</h2>
+  <p class="body" style="font-size:14.5pt;">Does imposed constraint produce worse design than market constraint — or just a different set of failure modes?  More importantly, is there a different set of success modes?</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">GDR · VEB design</p>
+  <p class="body" style="font-size:11.5pt;">A state-directed design apparatus rather than a market one — the closest structural parallel to Vkhutemas itself: art in direct service of a state's industrial plan.</p>
+  <p class="small" style="font-size:8.0pt;">31/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide2_0.png" alt="Picture 8" style="max-width:409px;max-height:545px;" />
+  <img src="images/slide2_0.png" alt="Picture 9" style="max-width:244px;max-height:90px;" />
+  <img src="images/slide2_0.png" alt="Picture 16" style="max-width:216px;max-height:216px;" />
+  <img src="images/slide2_0.png" alt="Picture 19" style="max-width:313px;max-height:235px;" />
+<div class="footer"><span>Constraint as Method</span><span>31/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 32 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">VKHUTEMAS, INVERTED 1990S–2010S</p>
+  <p class="small" style="font-size:10.5pt;">THE CONDITION, ELSEWHERE AND NOW</p>
+  <h2 class="slide-title" style="font-size:36.0pt;font-weight:bold;">Imposed scarcity can choke creativity.</h2>
+  <p class="body" style="font-size:14.5pt;">What happens when scarcity becomes truly limiting?</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">GDR · VEB design</p>
+  <p class="body" style="font-size:11.5pt;">Despite being insular, East German government still had to deal with pressures from the West – they had to prove they could not only keep up, but do better. 
+They couldn’t.</p>
+  <p class="small" style="font-size:8.0pt;">32/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide2_0.png" alt="Picture 17" style="max-width:647px;max-height:428px;" />
+  <p class="small" style="font-size:8.0pt;font-style:italic;">BSS 01 game console – 1979.</p>
+  <img src="images/slide2_0.png" alt="Picture 21" style="max-width:404px;max-height:247px;" />
+  <p class="small" style="font-size:8.0pt;font-style:italic;">Atari 2600 - 1977</p>
+  <h2 class="slide-title" style="font-size:35pt;">Whut.</h2>
+  <h2 class="slide-title" style="font-size:35pt;">Whut.</h2>
+  <p class="body" style="font-size:14.0pt;">Whut.</p>
+<div class="footer"><span>Constraint as Method</span><span>32/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 33 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">VEB, ENDED</p>
+  <p class="small" style="font-size:10.5pt;">THE CONDITION, EVER CHANGING</p>
+  <h2 class="slide-title" style="font-size:36.0pt;font-weight:bold;">Undesign is always possible.</h2>
+  <p class="small" style="font-size:8.0pt;">33/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide11_2.jpg" alt="Picture 7" style="max-width:816px;max-height:458px;" />
+  <p class="small" style="font-size:8.0pt;font-style:italic;">&quot;Boy chips at the Berlin Wall on November 12, 1989 in Berlin, Germany.&quot; (Photo by Pool CHUTE DU MUR BERLIN/Gamma-Rapho via Getty Images)</p>
+<div class="footer"><span>Constraint as Method</span><span>33/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 34 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">RODCHENKO'S COURSE,C.1925</p>
+  <p class="small" style="font-size:10.5pt;">FOUR-STEP DESIGN RUSH · SETUP</p>
+  <p class="subhead" style="font-size:22.0pt;font-weight:bold;">Five arrangements · 2:3 · three shapes.</p>
+  <p class="body" style="font-size:14.5pt;">The SVG template is on the Brightspace: a 2:3 artboard with the three shapes already placed, locked to scale proportionally. The shapes are outlines, not fills — they overlap and intersect, all three staying visible.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">The rule</p>
+  <p class="body" style="font-size:11.5pt;">Three shapes only — circle, triangle, rectangle — as outlines, overlapping and intersecting rather than placed side by side. Scale and rotate freely; never distort a shape out of true form.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">The rush</p>
+  <p class="body" style="font-size:11.5pt;">Duplicate the artboard five times and produce five different arrangements — Use each shape once.</p>
+  <p class="small" style="font-size:8.0pt;">34/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+<div class="footer"><span>Constraint as Method</span><span>34/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 35 / 67</span></div>
+  <p class="small" style="font-size:10.5pt;">WHERE DO YOU FIND STRUCTURE?</p>
+  <h2 class="slide-title" style="font-size:44.0pt;font-weight:bold;">Does it speak to you?</h2>
+  <p class="body" style="font-size:14.5pt;">Look back you your assemblages.  
+
+Which do you feel is the strongest?
+
+What draws your eye to it?
+
+Does it have a life beyond just the three outlines?</p>
+  <p class="small" style="font-size:8.0pt;">35/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+<div class="footer"><span>Constraint as Method</span><span>35/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 36 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">BOOKS! IN ALL BRANCHES OF KNOWLEDGE LENGIZ, 1924</p>
+  <p class="small" style="font-size:10.5pt;">THE DRILL'S PAYOFF, MADE VISIBLE</p>
+  <p class="subhead" style="font-size:22.0pt;font-weight:bold;">The same three shapes, endless possibilities.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">This is where the shapes can go.</p>
+  <p class="body" style="font-size:11.5pt;">An abstract exercise in overlapping outlines is what trains the eye to see a triangle as a megaphone and a circle as a face when a real problem turns up.
+Even if we removed the photograph, we could still imagine a person talking.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">You just did it first</p>
+  <p class="small" style="font-size:8.0pt;">36/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide11_2.jpg" alt="Picture 17" style="max-width:609px;max-height:435px;" />
+  <p class="small" style="font-size:8.0pt;font-style:italic;">Books! In All Branches of Knowledge, Alexander Rodchenko, 1924</p>
+<div class="footer"><span>Constraint as Method</span><span>36/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 37 / 67</span></div>
+  <p class="small" style="font-size:10.5pt;">THE FOUR-STEP CLOSE · INDEPENDENT WORK</p>
+  <p class="subhead" style="font-size:22.0pt;font-weight:bold;">Choose one arrangement — then populate it.</p>
+  <p class="body" style="font-size:14.5pt;">Pick whichever of your five arrangements has the most potential, scale it up, and make it carry real content the way Rodchenko did — an actual image placed inside one shape, real type carried by another. Twenty minutes, unsupervised.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">What the reveal just showed you</p>
+  <p class="body" style="font-size:11.5pt;">A face in the circle, a megaphone in the triangle, type bands in the rectangle — meaning assigned to the abstract shapes. Now assign yours.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">The natural step-out</p>
+  <p class="body" style="font-size:11.5pt;">The translation — abstract overlap becoming a real communicative decision under time pressure — is the whole exercise. Nothing needs to be polished.</p>
+  <p class="small" style="font-size:8.0pt;">37/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide11_2.jpg" alt="Picture 17" style="max-width:356px;max-height:254px;" />
+<div class="footer"><span>Constraint as Method</span><span>37/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 38 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">OULIPO 1960</p>
+  <p class="small" style="font-size:10.5pt;">CHOSEN CONSTRAINT · IN LITERATURE</p>
+  <h2 class="slide-title" style="font-size:40.0pt;font-weight:bold;">Rats who build the labyrinth.</h2>
+  <p class="body" style="font-size:14.5pt;">“Oulipians are rats who construct the labyrinth from which they plan to escape.” — Queneau.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">La Disparition, 1969</p>
+  <p class="body" style="font-size:11.5pt;">A ~300-page novel that never uses the letter e — in French, and in Gilbert Adair's English translation too. The missing letter is the whole generative structure.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">Cent mille milliards de poèmes, 1961</p>
+  <p class="body" style="font-size:11.5pt;">Ten sonnets with interchangeable line-strips: 10^14 possible poems from one physical book. Structure as combinatorial engine.</p>
+  <img src="images/slide2_0.png" alt="Picture 13" style="max-width:568px;max-height:410px;" />
+  <p class="small" style="font-size:7.5pt;">Cent Mille Milliards de Poèmes — cut-strip line-swap book · CC BY 2.0</p>
+  <p class="small" style="font-size:8.0pt;">38/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+<div class="footer"><span>Constraint as Method</span><span>38/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 39 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">OULIPO 1969</p>
+  <p class="small" style="font-size:10.5pt;">A LETTER, FORBIDDEN</p>
+  <p class="subhead" style="font-size:22.0pt;font-weight:bold;">A ~300-page novel that never uses the letter e.</p>
+  <p class="body" style="font-size:14.5pt;">Perec's La Disparition is a lipogram — published in French, and in Gilbert Adair's English translation as A Void , also without e . The missing letter is the whole generative structure.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">The reading, offered as interpretation</p>
+  <p class="body" style="font-size:11.5pt;">Perec was Jewish and orphaned by the Holocaust — his father killed in 1940, his mother deported to Auschwitz and murdered; some scholars read the e -less novel as entangled with that absence and loss. That's an interpretive reading, not a stated claim — worth carrying as such.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">The move, in design terms</p>
+  <p class="body" style="font-size:11.5pt;">The restriction isn't decoration around a finished text — it's the engine that produces every sentence.</p>
+  <p class="small" style="font-size:8.0pt;">39/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide2_0.png" alt="Picture 16" style="max-width:286px;max-height:435px;" />
+<div class="footer"><span>Constraint as Method</span><span>39/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 40 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">OULIPO, INHERITED 2010S</p>
+  <p class="small" style="font-size:10.5pt;">THE CONSTRAINT ECONOMY, REWOUND</p>
+  <p class="subhead" style="font-size:22.0pt;font-weight:bold;">The rat-and-labyrinth is now a design-tool staple.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">The 100-days challenge</p>
+  <p class="body" style="font-size:11.5pt;">dailyui-style daily prompts are Queneau's move inherited wholesale — pick an arbitrary daily rule, let it force the output. Many of you may have done one without knowing the lineage.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">Fantasy consoles</p>
+  <p class="body" style="font-size:11.5pt;">PICO-8 and TIC-80 hard-code resolution, palette, and memory limits — a genre unto itself in game jams. Software constraint operating exactly like a hardware limit, without the hardware. Keep this one for the build.</p>
+  <p class="small" style="font-size:8.0pt;">40/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide11_2.jpg" alt="Picture 15" style="max-width:482px;max-height:358px;" />
+  <img src="images/slide11_2.jpg" alt="Picture 17" style="max-width:381px;max-height:363px;" />
+<div class="footer"><span>Constraint as Method</span><span>40/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 41 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">OULIPO, INHERITED 2010S</p>
+  <p class="small" style="font-size:10.5pt;">THE CONSTRAINT COMMUNITY, UNBOUND</p>
+  <p class="subhead" style="font-size:22.0pt;font-weight:bold;">Cutting edge can be jagged graphics.</p>
+  <p class="small" style="font-size:8.0pt;">41/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide11_2.jpg" alt="Picture 16" style="max-width:460px;max-height:473px;" />
+  <p class="body" style="font-size:14.5pt;">PICO-8 is a walled garden just like Nintendo.  But the cost of entry is far lower.  And Higher.</p>
+  <p class="body" style="font-size:14.5pt;">The ecosystem is based on “cartridges”</p>
+  <p class="body" style="font-size:14.5pt;">Games are encoded into the PNGs that make the game thumbnails</p>
+  <p class="body" style="font-size:14.5pt;">Designers work within punishing constraints</p>
+  <p class="body" style="font-size:14.5pt;">Games become explorations of the essence of games</p>
+  <p class="body" style="font-size:16.0pt;">128×128 resolution</p>
+  <p class="body" style="font-size:16.0pt;">fixed 16-color palette</p>
+  <p class="body" style="font-size:16.0pt;">8,192 tokens*</p>
+<div class="footer"><span>Constraint as Method</span><span>41/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 42 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">DOGME 95 1995</p>
+  <p class="small" style="font-size:10.5pt;">CHOSEN CONSTRAINT · IN FILMMAKING</p>
+  <h2 class="slide-title" style="font-size:40.0pt;font-weight:bold;">The Vow of Chastity — self-authored, on principle.</h2>
+  <p class="body" style="font-size:14.5pt;">von Trier and Vinterberg had full budgets and effects available — and refused them on principle.</p>
+  <img src="images/slide11_2.jpg" alt="Picture 7" style="max-width:409px;max-height:306px;" />
+  <p class="small" style="font-size:7.5pt;">Dogme 95 certificate, No. 28 — Open Hearts · CC BY-SA 4.0</p>
+  <p class="small" style="font-size:8.0pt;">42/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide11_2.jpg" alt="Picture 13" style="max-width:544px;max-height:306px;" />
+  <p class="small" style="font-size:8.0pt;font-style:italic;">The Celebration (1998) by Thomas Vinterberg</p>
+<div class="footer"><span>Constraint as Method</span><span>42/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 43 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">DOGME 95 1995</p>
+  <p class="small" style="font-size:10.5pt;">THE VOW OF CHASTITY, IN FULL</p>
+  <p class="subhead" style="font-size:22.0pt;font-weight:bold;">Ten self-imposed rules — the entire manifesto.</p>
+  <p class="body" style="font-size:19.0pt;">01</p>
+  <p class="body" style="font-size:11.5pt;">Filming must be on location — no sets, no props brought in</p>
+  <p class="body" style="font-size:19.0pt;">02</p>
+  <p class="body" style="font-size:11.5pt;">Sound must never be produced apart from the images — no post-production sound design or added score</p>
+  <p class="body" style="font-size:19.0pt;">03</p>
+  <p class="body" style="font-size:11.5pt;">The camera must be hand-held</p>
+  <p class="body" style="font-size:19.0pt;">04</p>
+  <p class="body" style="font-size:11.5pt;">The film must be in color, with no special lighting</p>
+  <p class="body" style="font-size:19.0pt;">05</p>
+  <p class="body" style="font-size:11.5pt;">No optical work or filters</p>
+  <p class="body" style="font-size:19.0pt;">06</p>
+  <p class="body" style="font-size:11.5pt;">No surface action — murders, weapons, and so on</p>
+  <p class="body" style="font-size:19.0pt;">07</p>
+  <p class="body" style="font-size:11.5pt;">No temporal or geographical alienation — the film takes place here and now</p>
+  <p class="body" style="font-size:19.0pt;">08</p>
+  <p class="body" style="font-size:11.5pt;">Genre movies are not acceptable</p>
+  <p class="body" style="font-size:19.0pt;">09</p>
+  <p class="body" style="font-size:11.5pt;">Film format must be Academy 35mm</p>
+  <p class="body" style="font-size:19.0pt;">10</p>
+  <p class="body" style="font-size:11.5pt;">The director must not be credited</p>
+  <p class="small" style="font-size:8.0pt;">43/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+<div class="footer"><span>Constraint as Method</span><span>43/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 44 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">DOGME, REINVENTED 1980S–2010S</p>
+  <p class="small" style="font-size:10.5pt;">PARALLEL INVENTION, NOT LINEAGE</p>
+  <p class="subhead" style="font-size:22.0pt;font-weight:bold;">The same refusal, same message, different medium.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">Demoscene &amp; chiptune</p>
+  <p class="body" style="font-size:11.5pt;">Music and visuals on deliberately primitive hardware — Amiga and C64 cracking-scene culture. It predates Dogme by close to a decade: convergent, not descended.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">Brutalist web design</p>
+  <p class="body" style="font-size:11.5pt;">Raw, unstyled HTML as a reaction to corporate UX bloat — its stated lineage runs through architectural brutalism and anti-corporate sentiment, not film theory. Same pattern, independent roots.</p>
+  <p class="small" style="font-size:8.0pt;">44/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide11_2.jpg" alt="Picture 23" style="max-width:467px;max-height:337px;" />
+<div class="footer"><span>Constraint as Method</span><span>44/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 45 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">DOGME, REINVENTED 1980S–2010S</p>
+  <p class="small" style="font-size:10.5pt;">WE LIKE TO CLICK. WE WANT FRESH.</p>
+  <h2 class="slide-title" style="font-size:32.0pt;font-weight:bold;">Everything gets coopted.  good ideas live many lives.</h2>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">NeuBrutalist web design</p>
+  <p class="body" style="font-size:11.5pt;">Fashion raw that riffs on the elements of brutalism, while keeping things dynamic, in your face, and feely extra edgy.  Ooo Punk.</p>
+  <p class="small" style="font-size:8.0pt;">45/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide11_2.jpg" alt="Picture 22" style="max-width:608px;max-height:458px;" />
+<div class="footer"><span>Constraint as Method</span><span>45/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 46 / 67</span></div>
+  <p class="small" style="font-size:10.5pt;">THE BRIDGE INTO SOFTWARE</p>
+  <img src="images/slide2_0.png" alt="Picture 3" style="max-width:393px;max-height:196px;" />
+  <p class="small" style="font-size:7.5pt;">CD-ROM retail case · eBay listing photo</p>
+  <h2 class="slide-title" style="font-size:28.0pt;font-weight:bold;">A physical object whose entire problem is software.</h2>
+  <p class="body" style="font-size:13.0pt;">The CD-ROM encyclopedia is a hinge: a disc you hold, whose whole internal design problem is pure information — it was a cutting edge consumer product working inside it’s own constraints.</p>
+  <p class="small" style="font-size:8.0pt;">46/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide11_2.jpg" alt="Picture 10" style="max-width:474px;max-height:473px;" />
+<div class="footer"><span>Constraint as Method</span><span>46/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 47 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">CD-ROM 1993–2009</p>
+  <p class="small" style="font-size:10.5pt;">A HARDWARE CEILING OVER PURE INFORMATION</p>
+  <h2 class="slide-title" style="font-size:40.0pt;font-weight:bold;">A fixed disc is a hard ceiling that forces curation.</h2>
+  <p class="body" style="font-size:14.5pt;">Constrained by fixed disc capacity rather than bandwidth — every video, audio clip, and frame rationed to fit before the disc is pressed, with no post-release update possible.</p>
+  <h2 class="slide-title" style="font-size:36.0pt;font-weight:bold;">650–700 MB</h2>
+  <p class="body" style="font-size:12.0pt;">A fixed ceiling written before the disc is pressed — everything compressed to fit. No post-release update possible.</p>
+  <img src="images/slide2_0.png" alt="Picture 9" style="max-width:392px;max-height:392px;" />
+  <h2 class="slide-title" style="font-size:40.0pt;font-weight:bold;">0 updates</h2>
+  <p class="body" style="font-size:12.0pt;">Full-motion video was rationed hard in favor of short compressed clips and stills with narration — curation as the product.</p>
+  <p class="small" style="font-size:8.0pt;">47/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+<div class="footer"><span>Constraint as Method</span><span>47/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 48 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">ENCARTA 1993–2009</p>
+  <p class="small" style="font-size:10.5pt;">HARD-CEILING LOGIC, COMMERCIAL THIS TIME</p>
+  <p class="subhead" style="font-size:22.0pt;font-weight:bold;">The ceiling did the editing.</p>
+  <p class="body" style="font-size:14.5pt;">Everything had to be compressed and rationed before the disc was pressed: video into short clips, audio into narration-plus-stills. Curation became the product itself.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">Vkhutemas's cousin, apolitical</p>
+  <p class="body" style="font-size:11.5pt;">The same “hard ceiling forces curation” logic — but commercial, no ideology attached. Rationed by technology limitations dictating capacity, not by decree.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">Cheaper read as more considered</p>
+  <p class="body" style="font-size:11.5pt;">Fewer, better-chosen entries read as editorial care — the same inversion the dashboards will make literal: the ceiling becomes the tone.</p>
+  <p class="small" style="font-size:8.0pt;">48/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+<div class="footer"><span>Constraint as Method</span><span>48/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 49 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">SOFTWARE CONSTRAINT 1985–2016</p>
+  <p class="small" style="font-size:10.5pt;">A DISTINCT FLAVOR OF THE SAME MECHANISM</p>
+  <h2 class="slide-title" style="font-size:28.0pt;font-weight:bold;">You've been typing inside inherited protocols.</h2>
+  <p class="body" style="font-size:14.5pt;">None of these limits were anyone's aesthetic choice at the time. Monitors, network protocols, memory, and screen geometry imposed them — and designers turned each into a recognizable language.</p>
+  <p class="body" style="font-size:11.5pt;font-weight:bold;">140 → 160</p>
+  <p class="body" style="font-size:12.0pt;">A network protocol's character budget became a genre of compression.</p>
+  <p class="body" style="font-size:11.5pt;font-weight:bold;">216</p>
+  <p class="body" style="font-size:12.0pt;">A palette born of monitor and bandwidth limits defined the early web's look.</p>
+  <p class="body" style="font-size:11.5pt;font-weight:bold;">4 SHADES</p>
+  <p class="body" style="font-size:12.0pt;">Game Boy's green monochrome is Yokoi's withered technology, made identity.</p>
+  <p class="body" style="font-size:11.5pt;font-weight:bold;">1:1 &amp; 9:16</p>
+  <p class="body" style="font-size:12.0pt;">A square default and a vertical short frame now shape pacing and composition.</p>
+  <p class="small" style="font-size:8.0pt;">49/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+<div class="footer"><span>Constraint as Method</span><span>49/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 50 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">SIERRA ON-LINE · 1986</p>
+  <p class="small" style="font-size:10.5pt;">SOFTWARE CONSTRAINT · GAMES</p>
+  <h2 class="slide-title" style="font-size:29.0pt;font-weight:bold;">A design constraint, a visual vocabulary</h2>
+  <p class="body" style="font-size:14.5pt;">Sierra Online was at the forefront of game design.  Technology always constrained what they were able to accomplish, but it’s arguable that talented creative approaches resulted in stronger products, and placed the studio squarely as an important part of video game history.</p>
+  <p class="small" style="font-size:7.5pt;">The evolution of Roge Wilco</p>
+  <p class="small" style="font-size:8.0pt;">50/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide2_0.png" alt="Picture 12" style="max-width:468px;max-height:196px;" />
+  <img src="images/slide2_0.png" alt="Picture 13" style="max-width:366px;max-height:219px;" />
+<div class="footer"><span>Constraint as Method</span><span>50/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 51 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">SIERRA ON-LINE · 1986</p>
+  <p class="small" style="font-size:10.5pt;">SOFTWARE CONSTRAINT · GAMES</p>
+  <h2 class="slide-title" style="font-size:29.0pt;font-weight:bold;">Four colors, and it worked.</h2>
+  <p class="body" style="font-size:14.5pt;">Space Quest I ran on Sierra’s AGI engine: CGA graphics, a fixed four-color palette, and a text parser. Ulence Flats’ magenta sky and yellow sand aren’t a style choice — they’re what CGA’s composite mode could physically display.</p>
+  <p class="small" style="font-size:7.5pt;">Space Quest: The Sarien Encounter (DOS, 1986) · escaping Ulence Flats · MobyGames</p>
+  <p class="small" style="font-size:8.0pt;">51/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide2_0.png" alt="Picture 14" style="max-width:634px;max-height:396px;" />
+<div class="footer"><span>Constraint as Method</span><span>51/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 52 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">SIERRA ON-LINE · 1989</p>
+  <p class="small" style="font-size:10.5pt;">SOFTWARE CONSTRAINT · GAMES</p>
+  <h2 class="slide-title" style="font-size:29.0pt;font-weight:bold;">Sixteen colors, dithered into more.</h2>
+  <p class="body" style="font-size:14.5pt;">By Space Quest III, Sierra had EGA — sixteen colors from a palette of sixty-four. Artists dithered adjacent colors pixel by pixel to fake gradients the hardware didn’t have. Arnoid’s face is the workaround becoming a house style.</p>
+  <img src="images/slide11_2.jpg" alt="Picture 7" style="max-width:584px;max-height:366px;" />
+  <p class="small" style="font-size:7.5pt;">Space Quest III: The Pirates of Pestulon (DOS, 1989) · dithered EGA shading · MobyGames</p>
+  <p class="small" style="font-size:8.0pt;">52/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide2_0.png" alt="Picture 12" style="max-width:192px;max-height:192px;" />
+  <p class="small" style="font-size:7.5pt;">EGA Palette, Wikimedia Commons</p>
+<div class="footer"><span>Constraint as Method</span><span>52/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 53 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">SIERRA ON-LINE · 1991</p>
+  <p class="small" style="font-size:10.5pt;">SOFTWARE CONSTRAINT · GAMES</p>
+  <h2 class="slide-title" style="font-size:29.0pt;font-weight:bold;">256 colors — and the joke was going back.</h2>
+  <p class="body" style="font-size:14.5pt;">Space Quest IV shipped in full VGA: 256 colors, Sierra’s new SCI1 engine. Then Roger flashes back to Ulence Flats — and the game flattens to the old CGA look: “You’re a VGA man stuck in an EGA world... Boy, I remember this place!”</p>
+  <img src="images/slide11_2.jpg" alt="Picture 7" style="max-width:478px;max-height:297px;" />
+  <p class="small" style="font-size:7.5pt;">Space Quest IV: Roger Wilco and the Time Rippers (DOS, 1991) · full 256-color VGA · MobyGames</p>
+  <p class="small" style="font-size:8.0pt;">53/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide2_0.png" alt="Picture 13" style="max-width:567px;max-height:294px;" />
+  <p class="small" style="font-size:7.5pt;">Space Quest IV: Roger Wilco and the Time Rippers (DOS, 1991) Ulence Flats Scene</p>
+<div class="footer"><span>Constraint as Method</span><span>53/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 54 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">DOGME 95 2020</p>
+  <p class="small" style="font-size:10.5pt;">THE LOGIC THAT RETURNS IN SOFTWARE</p>
+  <p class="subhead" style="font-size:22.0pt;font-weight:bold;">“We chose not to have this capability.”</p>
+  <p class="body" style="font-size:14.5pt;">Dogme's refusal isn't a lack of access — it's a positioning move. The same sentence appears wherever pixel art outlives its hardware limit: nobody is forcing it, the restriction is kept on purpose, and it reads as authorship.</p>
+  <p class="small" style="font-size:8.0pt;">54/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide2_0.png" alt="Picture 11" style="max-width:405px;max-height:540px;" />
+  <p class="small" style="font-size:8.0pt;font-style:italic;">City of Human: Hattori Graphics, 2020</p>
+  <p class="body" style="font-size:14.5pt;">Pixel art is not exhibiting the same foundation as electronic brutalism. It is more akin to the limitation based framework of Dogme 95</p>
+  <p class="body" style="font-size:16.0pt;font-style:italic;">[the photograph] exists alongside a vast amount of information - the subject, the lens, the image sensor, the light, the aperture, the shutter speed, the file format, whether it’s been retouched. On the other hand, no matter how intently you examine most pixel art, there is nothing hidden.</p>
+  <h2 class="slide-title" style="font-size:96.0pt;">“</h2>
+  <h2 class="slide-title" style="font-size:96.0pt;">“</h2>
+  <p class="small" style="font-size:8.0pt;font-style:italic;">~Shingo Kabaya (Hattori Graphics)</p>
+<div class="footer"><span>Constraint as Method</span><span>54/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 55 / 67</span></div>
+  <p class="small" style="font-size:9.0pt;">NES / GENESIS · 1985–1994</p>
+  <p class="small" style="font-size:10.5pt;">SOFTWARE CONSTRAINT · GAMES</p>
+  <h2 class="slide-title" style="font-size:32.0pt;font-weight:bold;">The display was doing half the work</h2>
+  <p class="body" style="font-size:16.0pt;">NES and Genesis artists dithered for a display that would blur their work for them. Composite video encodes color as a subcarrier signal, and a CRT smears adjacent pixels together decoding it — so a checkerboard of two colors reads on-screen as a third color that was never actually drawn.</p>
+  <p class="small" style="font-size:8.0pt;">55/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide2_0.png" alt="Picture 1" style="max-width:462px;max-height:260px;" />
+  <img src="images/slide2_0.png" alt="Picture 15" style="max-width:264px;max-height:264px;" />
+  <img src="images/slide2_0.png" alt="Picture 16" style="max-width:462px;max-height:260px;" />
+<div class="footer"><span>Constraint as Method</span><span>55/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 56 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">WEB-SAFE PALETTE C.1996</p>
+  <p class="small" style="font-size:10.5pt;">BORN OF HARDWARE, READ AS STYLE</p>
+  <p class="subhead" style="font-size:22.0pt;font-weight:bold;">A palette that never expressed a personal taste.</p>
+  <p class="body" style="font-size:14.5pt;">“Web-safe” colors existed purely because early monitors and bandwidth couldn't reliably reproduce anything else — 6×6×6 levels of RGB. It defined the look of the early web.</p>
+  <p class="small" style="font-size:8.0pt;">56/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide2_0.png" alt="Picture 13" style="max-width:663px;max-height:343px;" />
+<div class="footer"><span>Constraint as Method</span><span>56/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 57 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">GAME BOY 1989</p>
+  <p class="small" style="font-size:10.5pt;">THE YOKOI CROSS-REFERENCE</p>
+  <p class="subhead" style="font-size:22.0pt;font-weight:bold;">Four shades of green made an identity.</p>
+  <p class="body" style="font-size:14.5pt;">Yokoi deliberately chose mature, cheap LCD tech when rivals chased color — “lateral thinking with withered technology.” The four-shade green became the visual memory of an entire platform generation.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">A preview of Session 4</p>
+  <p class="body" style="font-size:11.5pt;">Next week: a company that builds an entire design philosophy out of self-imposed constraint. This is its palette, before you've met the philosophy.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">Limit → language</p>
+  <p class="body" style="font-size:11.5pt;">The same four shades forced bolder, simpler visibility — constraint read as character, not cutback.</p>
+  <p class="small" style="font-size:8.0pt;">57/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide2_0.png" alt="Picture 17" style="max-width:548px;max-height:667px;" />
+<div class="footer"><span>Constraint as Method</span><span>57/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 58 / 67</span></div>
+  <img src="images/slide2_0.png" alt="Picture 14" style="max-width:450px;max-height:499px;" />
+  <p class="small" style="font-size:8.5pt;">SMS → TWITTER 1985 / 2006</p>
+  <p class="small" style="font-size:10.5pt;">THE CHARACTER-LIMIT PAIR</p>
+  <p class="subhead" style="font-size:22.0pt;font-weight:bold;">SMS's 160 invented the tweet's 140.</p>
+  <p class="body" style="font-size:14.5pt;">Cell networks budgeted 160 characters to fit signaling overhead; Twitter inherited the protocol's logic and cut twenty more for the username. A transmission constraint became a genre — compression as voice.</p>
+  <h2 class="slide-title" style="font-size:33.0pt;font-weight:bold;">160 chars</h2>
+  <p class="small" style="font-size:11.0pt;">SMS's ceiling — the network protocol that shaped everything that followed.</p>
+  <h2 class="slide-title" style="font-size:33.0pt;font-weight:bold;">20 chars</h2>
+  <p class="small" style="font-size:11.0pt;">Reserved for the username on top of the SMS logic — a limit layered on a limit.</p>
+  <p class="small" style="font-size:8.0pt;">58/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide2_0.png" alt="Picture 15" style="max-width:393px;max-height:221px;" />
+<div class="footer"><span>Constraint as Method</span><span>58/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 59 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">INSTAGRAM · TIKTOK 2010 / 2016</p>
+  <p class="small" style="font-size:10.5pt;">THE FRAME AS AN ENFORCED DEFAULT</p>
+  <p class="subhead" style="font-size:22.0pt;font-weight:bold;">A square crop and a 9:16 frame taught two generations to compose.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">Instagram's 1:1</p>
+  <p class="body" style="font-size:11.5pt;">The original square-only crop was a constraint of the feed — and it made a whole era of photography square-first, balanced, immediate.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">TikTok's 9:16 + seconds</p>
+  <p class="body" style="font-size:11.5pt;">A portrait frame held in one hand, and a short clock counting down — the canvas and the meter shape pacing and framing, not just the look.</p>
+  <p class="small" style="font-size:8.0pt;">59/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide2_0.png" alt="Picture 15" style="max-width:336px;max-height:252px;" />
+  <img src="images/slide2_0.png" alt="Picture 16" style="max-width:405px;max-height:720px;" />
+  <img src="images/slide2_0.png" alt="Picture 17" style="max-width:187px;max-height:332px;" />
+<div class="footer"><span>Constraint as Method</span><span>59/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 60 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">TOUCHSCREEN DASHBOARDS 2009–</p>
+  <p class="small" style="font-size:10.5pt;">THE ORIGIN CASE · TESLA 2009 MODEL S</p>
+  <p class="subhead" style="font-size:22.0pt;font-weight:bold;">One glass panel replacing dozens of controls — cost, plus a second motive.</p>
+  <p class="body" style="font-size:14.5pt;">Centralizing nearly all controls into one touchscreen can be seen as a manufacturing cost cut, structurally identical to Yokoi's cheap-LCD bet, but inverted in feeling.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">Where it's identical to Yokoi</p>
+  <p class="body" style="font-size:11.5pt;">A cheaper manufacturing path, chosen. Same move as the Game Boy.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">Where it differs</p>
+  <p class="body" style="font-size:11.5pt;">Yokoi marketed practicality — price, battery, library. Dashboards also signal modernity: the flat panel isn't just cheaper, it performs as premium and futuristic. Two motives at once, not constraint alone.</p>
+  <img src="images/slide11_2.jpg" alt="Picture 13" style="max-width:623px;max-height:392px;" />
+  <p class="small" style="font-size:7.5pt;">Tesla Model S interior — the single glass panel · photo: Jim Motavalli / Car Talk</p>
+  <p class="small" style="font-size:8.0pt;">60/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+<div class="footer"><span>Constraint as Method</span><span>60/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 61 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">TOUCHSCREEN DASHBOARDS 2009–</p>
+  <p class="small" style="font-size:10.5pt;">THE INVERSION, STATED ALONE</p>
+  <h2 class="slide-title" style="font-size:29.0pt;font-weight:bold;">Cheaper reads as more expensive.</h2>
+  <p class="body" style="font-size:14.5pt;">A dashboard with fewer buttons, dials, and gauges should feel like the cheaper, stripped-down option. Instead, it reads as nicer trim. The look of luxury isn't a side effect of expensive engineering here — it's the mechanism that lets the cost-cutting go unnoticed.</p>
+  <p class="small" style="font-size:7.5pt;">Tesla Model 3 vs. 1958 Cadillac Eldorado Seville</p>
+  <p class="small" style="font-size:8.0pt;">61/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+  <img src="images/slide2_0.png" alt="Picture 14" style="max-width:352px;max-height:235px;" />
+  <img src="images/slide2_0.png" alt="Picture 15" style="max-width:579px;max-height:205px;" />
+  <img src="images/slide2_0.png" alt="Picture 16" style="max-width:579px;max-height:234px;" />
+<div class="footer"><span>Constraint as Method</span><span>61/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 62 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">TOUCHSCREEN DASHBOARDS 2009–</p>
+  <p class="small" style="font-size:10.5pt;">THE ARGUMENT MADE LITERAL AND SAFETY-CRITICAL</p>
+  <p class="subhead" style="font-size:22.0pt;font-weight:bold;">By feel, gone.</p>
+  <p class="body" style="font-size:14.5pt;">A driver adjusting airflow at 100km/h once operated a control by feel alone. Now it's a laggy touch target a glance-and-a-poke away from the road — attention-splitting input on a control that used to be hands-free.</p>
+  <p class="body" style="font-size:15.5pt;font-weight:bold;">Most of the room has lived this</p>
+  <p class="body" style="font-size:11.5pt;">A recent-model rental, an unfamiliar cabin, a heat dial behind a submenu — the touch-vs-sight failure is common, current, and personal.</p>
+  <p class="small" style="font-size:8.0pt;">62/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+<div class="footer"><span>Constraint as Method</span><span>62/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 63 / 67</span></div>
+  <p class="small" style="font-size:8.5pt;">THE WALK BACK 2024–</p>
+  <p class="small" style="font-size:10.5pt;">PRODUCTS REVERSE THE CUT</p>
+  <h2 class="slide-title" style="font-size:29.0pt;font-weight:bold;">The buttons come back.</h2>
+  <p class="body" style="font-size:14.5pt;">The all-touch cabin was a cost cut with a safety floor — the ID.3 ran heat, volume, and lights all behind one laggy screen. VW's 2024 ID.2all concept puts physical “hot buttons” back, backlit and one-touch, no menus — Hyundai keeps hard controls a brand promise, and Apple restored physical buttons on the iPhone 16 and function keys on the MacBook. Constraint, reversed.</p>
+  <img src="images/slide11_2.jpg" alt="Picture 7" style="max-width:448px;max-height:299px;" />
+  <p class="small" style="font-size:7.5pt;">ID.3, 2021 every control behind a touchscreen · photo: Parkers / Bauer Media · parkers.co.uk</p>
+  <img src="images/slide11_2.jpg" alt="Picture 9" style="max-width:512px;max-height:288px;" />
+  <p class="small" style="font-size:7.5pt;">ID.2all, 2024 “hot buttons” return · photo: Volkswagen via Motor1 · motor1.com</p>
+  <p class="small" style="font-size:8.0pt;">63/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+<div class="footer"><span>Constraint as Method</span><span>63/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 64 / 67</span></div>
+  <p class="small" style="font-size:10.5pt;">HAND MADE CIRCUITS · TODAY</p>
+  <h2 class="slide-title" style="font-size:38.0pt;font-weight:bold;">This afternoon, you’re soldering the outcome.</h2>
+  <p class="body" style="font-size:17.0pt;">A Weevil Eye board doesn’t hide its own mechanism — the case doesn’t exist. The chip, the resistors, the joints are the face. It’s Bauhaus’s honest-materials logic sitting in your hand instead of argued in a lecture.</p>
+  <p class="small" style="font-size:10.5pt;">You’re not Vkhutemas here — you’re closer to a GDR kid building a Plasticart kit. Someone else already closed the design decisions; the only thing left to you is whether you pick up the iron.</p>
+  <p class="small" style="font-size:8.0pt;">64/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+<div class="footer"><span>Constraint as Method</span><span>64/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 65 / 67</span></div>
+  <p class="small" style="font-size:10.5pt;">CROSSING BACK ACROSS ALL SIX</p>
+  <h2 class="slide-title" style="font-size:32.0pt;font-weight:bold;">Chosen and imposed converge on the same mechanism.</h2>
+  <p class="body" style="font-size:17.0pt;">Bauhaus, Vkhutemas — even Yokoi's Game Boy — turned material and economic scarcity into lasting design languages. OULIPO and Dogme 95 invented their own rules with no external pressure at all. The mechanism is identical.</p>
+  <p class="small" style="font-size:10.5pt;">Yokoi is the throughline that returns next week — a company that builds an entire design philosophy out of self-imposed constraint. Same move, chosen register.</p>
+  <p class="small" style="font-size:8.0pt;">65/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+<div class="footer"><span>Constraint as Method</span><span>65/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 66 / 67</span></div>
+  <p class="small" style="font-size:10.5pt;">TO CONSIDER:</p>
+  <h2 class="slide-title" style="font-size:38.0pt;font-weight:bold;">Does it hold when opting out isn't on the table?</h2>
+  <p class="body" style="font-size:17.0pt;">A Dogme director can always pick up a dolly again; a writer can stop lipogramming. Cuba in the Período Especial, the GDR's Plasticart model kits, Vkhutemas's own students — nobody involved had the option to opt out. Does “constraint improves design” survive once inescapability replaces the exit?</p>
+  <p class="small" style="font-size:8.0pt;">66/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+<div class="footer"><span>Constraint as Method</span><span>66/67</span></div>
+</section>
+<section class="slide">
+<div class="slide-header"><span>Constraint as Method · MDES6530 Session 3 · Oct 1</span><span> Slide 67 / 67</span></div>
+  <p class="small" style="font-size:10.5pt;">ON TO SESSION 4</p>
+  <h2 class="slide-title" style="font-size:38.0pt;font-weight:bold;">Next time : a company built on self-imposed constraint.</h2>
+  <p class="body" style="font-size:17.0pt;">Yokoi's Nintendo turns the whole survey into an operating philosophy.</p>
+  <p class="small" style="font-size:10.5pt;">After the break · Hand Made Circuits</p>
+  <p class="small" style="font-size:8.0pt;">67/67</p>
+  <p class="small" style="font-size:7.0pt;">CONSTRAINT AS METHOD</p>
+<div class="footer"><span>Constraint as Method</span><span>67/67</span></div>
+</section>
+</body>
+</html>
