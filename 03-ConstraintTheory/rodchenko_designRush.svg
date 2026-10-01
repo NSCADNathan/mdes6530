@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="300mm"
+   height="200mm"
+   viewBox="0 0 300 200"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   sodipodi:docname="rodchenko_designRush.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.74118967"
+     inkscape:cx="488.404"
+     inkscape:cy="380.46941"
+     inkscape:window-width="2200"
+     inkscape:window-height="1137"
+     inkscape:window-x="3246"
+     inkscape:window-y="405"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.529167"
+       id="rect1"
+       width="37.83894"
+       height="37.83894"
+       x="51.760818"
+       y="76.034859" />
+    <circle
+       style="fill:none;stroke:#000000;stroke-width:0.529167"
+       id="path1"
+       cx="145.28726"
+       cy="94.954323"
+       r="21.775242" />
+    <path
+       sodipodi:type="star"
+       style="fill:none;stroke:#000000;stroke-width:0.529167"
+       id="path2"
+       inkscape:flatsided="false"
+       sodipodi:sides="3"
+       sodipodi:cx="186.33894"
+       sodipodi:cy="61.756008"
+       sodipodi:r1="27.150936"
+       sodipodi:r2="13.575468"
+       sodipodi:arg1="0.78539816"
+       sodipodi:arg2="1.8325957"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 205.53755,80.954619 -22.7122,-6.085716 -22.7122,-6.085715 16.62649,-16.626485 16.62648,-16.626485 6.08572,22.7122 z"
+       inkscape:transform-center-x="-0.19697402"
+       inkscape:transform-center-y="1.5511215"
+       transform="rotate(-15,358.43111,-59.559693)" />
+  </g>
+</svg>

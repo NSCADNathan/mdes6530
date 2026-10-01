@@ -12,3 +12,6 @@ memory/
 
 # Slide viewer PDFs are published content
 !01-Electricity/viewer/*.pdf
+
+# PowerPoint lock files
+~$*
