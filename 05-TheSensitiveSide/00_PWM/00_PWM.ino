@@ -57,29 +57,8 @@ void setup() {
 
 void loop()
 {
-  // here is where you'd put code that needs to be running all the time.
-  // check to see if it's time to blink the LED; that is, if the
-  // difference between the current time and last time you blinked
-  // the LED is bigger than the interval at which you want to
-  // blink the LED.
-  unsigned long currentMillis = millis();
 
-  if(currentMillis - previousMillis > interval) {
-    // save the last time you blinked the LED
-    previousMillis = currentMillis;
 
-    // if the LED is off turn it on and vice-versa:
-    if (ledState == LOW)
-      ledState = HIGH;
-    else
-      ledState = LOW;
-
-    // set the LED with the ledState of the variable:
-    digitalWrite(ledPin, ledState);
-  }
- pwmTime = millis();
- value = 128+127*cos(2*PI/periode*pwmTime);
-
- analogWrite(pwmPin, value); // sets the value (range from 0 to 255)
+ analogWrite(pwmPin, 255); // sets the value (range from 0 to 255)
 
   }
