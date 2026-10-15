@@ -1,28 +1,28 @@
 /*
   Button I
 
-  Turns on and off a light emitting diode (LED) connected to pin 27,
-  when pressing a pushbutton attached to pin 25.
+  Turns on and off a light emitting diode (LED) connected to pin 11,
+  when pressing a pushbutton attached to pin 8.
 
   The circuit:
-  - LED attached from pin 27 to ground through 220 ohm resistor
-  - pushbutton attached to pin 25 from +3.3V
+  - LED attached from pin 11 to ground through 220 ohm resistor
+  - pushbutton attached to pin 8 from +3.3V
 
   Originally created 2005 by DojoDave
   Modified by Tom Igoe, 2011
-  Refactored for ESP32 by Theverant
+
 
   https://www.arduino.cc/en/Tutorial/BuiltInExamples/Button
 */
 
 // --- PIN NUMBERS ---
 // Think of these like giving nicknames to specific physical pins on the board.
-// Instead of writing "25" everywhere, we write "buttonPin" — much easier to read.
+// Instead of writing "8" everywhere, we write "buttonPin" — much easier to read.
 // "const" means this number will NEVER change while the program runs.
 // "int" means it's a whole number (integer). No decimals.
 
-const int buttonPin = 25;  // GPIO 25 on the ESP32 — this pin reads the button
-const int ledPin = 27;     // GPIO 27 on the ESP32 — this pin controls the LED
+const int buttonPin = 8;  // this pin reads the button
+const int ledPin = 11;     // this pin controls the LED
 
 
 // --- VARIABLES ---
