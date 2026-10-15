@@ -19,8 +19,8 @@
 // We define all our pin numbers up here so they're easy to find and change.
 // "const int" = a whole number that will never change during the program.
 
-const int onPin  = 8;  // the button that turns the LED ON
-const int offPin = 7;  // the button that turns the LED OFF
+const int fadePin  = 8;  // the button that turns the LED ON
+const int resetPin = 7;  // the button that turns the LED OFF
 const int ledPin = 11;  // the LED output pin
 
 // --- VARIABLES ---
