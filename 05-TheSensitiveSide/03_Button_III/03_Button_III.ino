@@ -6,23 +6,22 @@
   - Press the FADE button:  LED pulses in and out (fades up and down repeatedly)
 
   The circuit:
-  - LED attached from pin 27 to ground through 220 ohm resistor
-  - pushbutton (reset) attached to pin 25 from +3.3V
-  - pushbutton (fade)  attached to pin 26 from +3.3V
+  - LED attached from pin 11 to ground through 220 ohm resistor
+  - pushbutton (reset) attached to pin 8 from +3.3V
+  - pushbutton (fade)  attached to pin 7 from +3.3V
 
   Based on the Button and Fade examples.
   Kludge by Theverant, 2022.
 
   https://www.arduino.cc/en/Tutorial/BuiltInExamples/Button
 */
-
-
 // --- PIN NUMBERS ---
+// We define all our pin numbers up here so they're easy to find and change.
+// "const int" = a whole number that will never change during the program.
 
-const int resetPin = 25;  // GPIO 25 — pressing this button makes the LED go solid
-const int fadePin  = 26;  // GPIO 26 — pressing this button makes the LED start fading
-const int ledPin   = 27;  // GPIO 27 — the LED
-
+const int onPin  = 8;  // the button that turns the LED ON
+const int offPin = 7;  // the button that turns the LED OFF
+const int ledPin = 11;  // the LED output pin
 
 // --- VARIABLES ---
 // These all start with some default value but will change as the program runs.

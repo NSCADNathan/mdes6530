@@ -6,9 +6,9 @@
   Hold the other button to make it dimmer.
 
   The circuit:
-  - LED attached from pin 27 to ground through 220 ohm resistor
-  - pushbutton (brighter) attached to pin 25 from +3.3V
-  - pushbutton (dimmer)   attached to pin 26 from +3.3V
+  - LED attached from pin 11 to ground through 220 ohm resistor
+  - pushbutton (brighter) attached to pin 8 from +3.3V
+  - pushbutton (dimmer)   attached to pin 7 from +3.3V
 
   Originally created 2005 by DojoDave
   Modified by Tom Igoe, 2011
@@ -21,9 +21,9 @@
 
 // --- PIN NUMBERS ---
 
-const int upPin   = 25;  // GPIO 25 — button that increases brightness
-const int downPin = 26;  // GPIO 26 — button that decreases brightness
-const int ledPin  = 27;  // GPIO 27 — the LED
+const int upPin   = 8;  // GPIO 25 — button that increases brightness
+const int downPin = 7;  // GPIO 26 — button that decreases brightness
+const int ledPin  = 11;  // GPIO 27 — the LED
 
 
 // --- VARIABLES ---
