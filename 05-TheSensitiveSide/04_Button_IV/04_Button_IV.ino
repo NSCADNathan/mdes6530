@@ -21,9 +21,9 @@
 
 // --- PIN NUMBERS ---
 
-const int upPin   = 8;  // GPIO 25 — button that increases brightness
-const int downPin = 7;  // GPIO 26 — button that decreases brightness
-const int ledPin  = 11;  // GPIO 27 — the LED
+const int upPin   = 8;  // button that increases brightness
+const int downPin = 7;  // button that decreases brightness
+const int ledPin  = 11;  // the LED
 
 
 // --- VARIABLES ---
@@ -73,7 +73,7 @@ void loop() {
     // The loop runs every 30ms (see delay at the bottom), so holding the button
     // will smoothly increase brightness over time.
 
-    Serial.println(upPin);
+    Serial.println(brightness);
     // Print the pin number to the Serial Monitor.
     // (Bit of a debug leftover — normally you'd print "brightness" here.)
   }

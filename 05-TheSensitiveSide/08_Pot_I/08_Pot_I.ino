@@ -15,7 +15,7 @@
   Theverant, 2026
 */
 
-const int potPin = A1;
+const int potPin = A0;
 const int buzzerPin = 4;
 const int ledPin = 6;
 

@@ -31,7 +31,7 @@ int fadeState  = LOW;   // current reading of the fade button (HIGH/LOW)
 int LEDstate   = 0;     // tracks which MODE the LED is in: HIGH = solid, LOW = fading
 
 int brightness  = 0;    // the LED's current brightness level (0 = off, 255 = full brightness)
-int fadeAmount  = 5;    // how much to change brightness each step of the fade
+int fadeAmount  = 15;    // how much to change brightness each step of the fade
                         // positive = getting brighter, negative = getting dimmer
 
 

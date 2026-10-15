@@ -31,7 +31,7 @@ int brightness = 50;
 // The LED starts at brightness 50 (out of 255 max).
 // This is the current brightness level. It changes when buttons are pressed.
 
-int brightStep = 5;
+int brightStep = 15;
 // This is how much brightness changes each time you press a button.
 // Unlike Button IV which changes by 1 per loop, this jumps by "brightStep" at once.
 // Try changing this number — 50 would give you big dramatic jumps, 1 would be very fine control.
