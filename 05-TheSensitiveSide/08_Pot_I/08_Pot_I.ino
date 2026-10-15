@@ -22,6 +22,7 @@ const int ledPin = 6;
 void setup() {
   pinMode(buzzerPin, OUTPUT);
   pinMode(ledPin, OUTPUT);
+  Serial.begin(9600);
 }
 
 void loop() {
@@ -29,4 +30,5 @@ void loop() {
 
   tone(buzzerPin, potValue);           // use it as a frequency, no scaling
   analogWrite(ledPin, potValue / 4);   // analogWrite only goes to 255, so divide by 4
+  Serial.println (potValue);
 }
