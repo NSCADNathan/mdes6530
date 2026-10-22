@@ -47,6 +47,6 @@ void loop () {
   } else {
     digitalWrite (bled, LOW);
   }
-  Serial.print(dist);
+  Serial.println(dist);
   delay(100);
 }
