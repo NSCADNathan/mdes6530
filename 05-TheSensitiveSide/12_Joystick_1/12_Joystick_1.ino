@@ -17,12 +17,15 @@ void setup() {
 
 void loop() {
   Serial.print("Switch:  ");
-  Serial.println(digitalRead(SW_pin)); 
+  Serial.print(digitalRead(SW_pin)); 
   //println = print line and carriage return (next print command happens on new line)
+  Serial.print(" | ");
   Serial.print("X-axis: ");
-  Serial.println(analogRead(X_pin));
+  Serial.print(analogRead(X_pin));
+  Serial.print(" | ");
   Serial.print("Y-axis: ");
-  Serial.println(analogRead(Y_pin));
+  Serial.print(analogRead(Y_pin));
+  Serial.print(" | ");
   Serial.print("\n\n"); // /n is a carriage return. Two puts two empty line spaces between this block and the block in the next loop
   delay(10);
 }
